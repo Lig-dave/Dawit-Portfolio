@@ -1,0 +1,951 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Dawit Feyisa | B2B Market Research & Lead Generation</title>
+
+<meta name="description" content="Dawit Feyisa - B2B Market Research, Lead Generation, Sales Research, Marketing Research and Excel Data Analysis.">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial, Helvetica, sans-serif;
+    background:#08111f;
+    color:#f5f7fa;
+    line-height:1.6;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+.container{
+    width:90%;
+    max-width:1100px;
+    margin:auto;
+}
+
+/* NAVIGATION */
+nav{
+    position:sticky;
+    top:0;
+    z-index:1000;
+    background:rgba(8,17,31,0.95);
+    border-bottom:1px solid #1b2b40;
+    backdrop-filter:blur(10px);
+}
+
+.nav-inner{
+    min-height:70px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo{
+    font-size:20px;
+    font-weight:800;
+}
+
+.logo span{
+    color:#35d39a;
+}
+
+.nav-links{
+    display:flex;
+    gap:25px;
+    font-size:14px;
+}
+
+.nav-links a{
+    color:#c9d2df;
+}
+
+.nav-links a:hover{
+    color:#35d39a;
+}
+
+/* HERO */
+.hero{
+    padding:100px 0 90px;
+    background:
+    radial-gradient(circle at top right,#123c42 0,transparent 35%),
+    radial-gradient(circle at bottom left,#102a40 0,transparent 35%);
+}
+
+.badge{
+    display:inline-block;
+    padding:8px 14px;
+    border:1px solid #235d51;
+    border-radius:30px;
+    color:#35d39a;
+    font-size:13px;
+    margin-bottom:22px;
+    background:#0c1d29;
+}
+
+.hero h1{
+    font-size:58px;
+    line-height:1.05;
+    max-width:850px;
+    margin-bottom:25px;
+}
+
+.hero h1 span{
+    color:#35d39a;
+}
+
+.hero p{
+    color:#b7c2d0;
+    max-width:700px;
+    font-size:19px;
+    margin-bottom:35px;
+}
+
+.buttons{
+    display:flex;
+    gap:15px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    display:inline-block;
+    padding:14px 22px;
+    border-radius:10px;
+    font-weight:700;
+    font-size:15px;
+    border:1px solid #294057;
+}
+
+.btn-primary{
+    background:#35d39a;
+    color:#061019;
+    border:none;
+}
+
+.btn-primary:hover{
+    background:#49e5ab;
+}
+
+.btn-secondary:hover{
+    border-color:#35d39a;
+    color:#35d39a;
+}
+
+/* SECTION */
+section{
+    padding:85px 0;
+}
+
+.section-label{
+    color:#35d39a;
+    font-size:13px;
+    font-weight:800;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    margin-bottom:12px;
+}
+
+.section-title{
+    font-size:38px;
+    margin-bottom:15px;
+}
+
+.section-description{
+    color:#9eabba;
+    max-width:700px;
+    margin-bottom:45px;
+}
+
+/* SERVICES */
+.services{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
+
+.card{
+    background:#0d1928;
+    border:1px solid #1b2b40;
+    border-radius:16px;
+    padding:28px;
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+    border-color:#35d39a;
+}
+
+.icon{
+    width:45px;
+    height:45px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:10px;
+    background:#112c32;
+    color:#35d39a;
+    font-weight:bold;
+    margin-bottom:20px;
+}
+
+.card h3{
+    margin-bottom:10px;
+    font-size:20px;
+}
+
+.card p{
+    color:#9eabba;
+    font-size:14px;
+}
+
+/* CASE STUDIES */
+.case-grid{
+    display:grid;
+    gap:25px;
+}
+
+.case{
+    background:#0d1928;
+    border:1px solid #1b2b40;
+    border-radius:18px;
+    padding:30px;
+}
+
+.case-number{
+    color:#35d39a;
+    font-size:13px;
+    font-weight:bold;
+    margin-bottom:10px;
+}
+
+.case h3{
+    font-size:25px;
+    margin-bottom:12px;
+}
+
+.case p{
+    color:#aeb9c8;
+    margin-bottom:18px;
+}
+
+.tags{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+}
+
+.tag{
+    background:#142337;
+    border:1px solid #243950;
+    padding:6px 10px;
+    border-radius:20px;
+    color:#cbd5e1;
+    font-size:12px;
+}
+
+/* ABOUT */
+.about-grid{
+    display:grid;
+    grid-template-columns:1.2fr .8fr;
+    gap:50px;
+    align-items:start;
+}
+
+.about-text p{
+    color:#adb8c6;
+    margin-bottom:18px;
+}
+
+.info-box{
+    background:#0d1928;
+    border:1px solid #1b2b40;
+    border-radius:16px;
+    padding:25px;
+}
+
+.info-item{
+    padding:15px 0;
+    border-bottom:1px solid #1b2b40;
+}
+
+.info-item:last-child{
+    border-bottom:none;
+}
+
+.info-item strong{
+    display:block;
+    margin-bottom:4px;
+}
+
+.info-item span{
+    color:#9eabba;
+    font-size:14px;
+}
+
+/* SKILLS */
+.skills{
+    display:grid;
+    gap:18px;
+    max-width:750px;
+}
+
+.skill-top{
+    display:flex;
+    justify-content:space-between;
+    margin-bottom:7px;
+    font-size:14px;
+}
+
+.skill-top span:last-child{
+    color:#35d39a;
+}
+
+.bar{
+    height:8px;
+    background:#172538;
+    border-radius:20px;
+    overflow:hidden;
+}
+
+.fill{
+    height:100%;
+    background:#35d39a;
+    border-radius:20px;
+}
+
+/* PROCESS */
+.process{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
+
+.step{
+    position:relative;
+    background:#0d1928;
+    border:1px solid #1b2b40;
+    border-radius:16px;
+    padding:28px;
+}
+
+.step-number{
+    font-size:35px;
+    font-weight:800;
+    color:#35d39a;
+    margin-bottom:12px;
+}
+
+.step h3{
+    margin-bottom:8px;
+}
+
+.step p{
+    color:#9eabba;
+    font-size:14px;
+}
+
+/* CTA */
+.cta{
+    background:linear-gradient(135deg,#0e2d31,#0d1928);
+    border:1px solid #235347;
+    border-radius:22px;
+    padding:55px;
+    text-align:center;
+}
+
+.cta h2{
+    font-size:40px;
+    margin-bottom:15px;
+}
+
+.cta p{
+    color:#adb8c6;
+    max-width:650px;
+    margin:0 auto 28px;
+}
+
+/* FOOTER */
+footer{
+    padding:35px 0;
+    border-top:1px solid #1b2b40;
+    color:#7f8b9b;
+    font-size:13px;
+}
+
+.footer-inner{
+    display:flex;
+    justify-content:space-between;
+    gap:20px;
+    flex-wrap:wrap;
+}
+
+/* MOBILE */
+@media(max-width:760px){
+
+    .container{
+        width:92%;
+    }
+
+    .nav-inner{
+        min-height:60px;
+    }
+
+    .nav-links{
+        display:none;
+    }
+
+    .hero{
+        padding:70px 0 65px;
+    }
+
+    .hero h1{
+        font-size:40px;
+    }
+
+    .hero p{
+        font-size:16px;
+    }
+
+    section{
+        padding:65px 0;
+    }
+
+    .section-title{
+        font-size:30px;
+    }
+
+    .services{
+        grid-template-columns:1fr;
+    }
+
+    .about-grid{
+        grid-template-columns:1fr;
+        gap:30px;
+    }
+
+    .process{
+        grid-template-columns:1fr;
+    }
+
+    .case{
+        padding:24px;
+    }
+
+    .case h3{
+        font-size:21px;
+    }
+
+    .cta{
+        padding:35px 20px;
+    }
+
+    .cta h2{
+        font-size:30px;
+    }
+
+    .btn{
+        width:100%;
+        text-align:center;
+    }
+
+    .footer-inner{
+        flex-direction:column;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVIGATION -->
+<nav>
+<div class="container nav-inner">
+
+<div class="logo">
+Dawit<span>.</span>
+</div>
+
+<div class="nav-links">
+<a href="#services">Services</a>
+<a href="#work">Work</a>
+<a href="#about">About</a>
+<a href="#process">Process</a>
+<a href="#contact">Contact</a>
+</div>
+
+</div>
+</nav>
+
+
+<!-- HERO -->
+<header class="hero">
+<div class="container">
+
+<div class="badge">
+B2B MARKET RESEARCH + LEAD GENERATION
+</div>
+
+<h1>
+I find the <span>companies, prospects</span> and market intelligence your sales team needs.
+</h1>
+
+<p>
+I help businesses identify potential customers, research markets,
+build B2B prospect lists, organize sales data and turn research into
+useful business opportunities.
+</p>
+
+<div class="buttons">
+
+<a class="btn btn-primary" href="#contact">
+Let's Work Together
+</a>
+
+<a class="btn btn-secondary" href="#work">
+View My Work
+</a>
+
+</div>
+
+</div>
+</header>
+
+
+<!-- SERVICES -->
+<section id="services">
+<div class="container">
+
+<div class="section-label">What I Do</div>
+
+<h2 class="section-title">
+Research that supports sales and growth.
+</h2>
+
+<p class="section-description">
+My work combines marketing research, sales experience,
+lead generation, business research and data organization.
+</p>
+
+<div class="services">
+
+<div class="card">
+<div class="icon">01</div>
+<h3>B2B Lead Generation</h3>
+<p>
+Research companies, prospects and decision-makers and organize
+qualified leads into structured Excel or Google Sheets lists.
+</p>
+</div>
+
+<div class="card">
+<div class="icon">02</div>
+<h3>Market Research</h3>
+<p>
+Research competitors, products, customers, dealers, distributors
+and market conditions to support business decisions.
+</p>
+</div>
+
+<div class="card">
+<div class="icon">03</div>
+<h3>Web & Sales Research</h3>
+<p>
+Find relevant businesses and market information online and
+organize the information into useful research reports.
+</p>
+</div>
+
+<div class="card">
+<div class="icon">04</div>
+<h3>Excel & Data</h3>
+<p>
+Clean, organize, sort and analyze business data using Excel
+and Google Sheets, including tables and basic visual analysis.
+</p>
+</div>
+
+<div class="card">
+<div class="icon">05</div>
+<h3>CRM & Follow-up</h3>
+<p>
+Support prospect follow-up, customer communication,
+lead organization and sales pipeline activities.
+</p>
+</div>
+
+<div class="card">
+<div class="icon">06</div>
+<h3>Marketing Research</h3>
+<p>
+Collect customer feedback, identify purchasing needs and
+turn field observations into practical marketing insights.
+</p>
+</div>
+
+</div>
+</div>
+</section>
+
+
+<!-- WORK -->
+<section id="work">
+<div class="container">
+
+<div class="section-label">Selected Work</div>
+
+<h2 class="section-title">
+Real B2B research & sales experience.
+</h2>
+
+<p class="section-description">
+Selected examples from my marketing and sales work in the
+furniture, machinery and semi-finished products market.
+</p>
+
+<div class="case-grid">
+
+<div class="case">
+
+<div class="case-number">CASE STUDY 01</div>
+
+<h3>B2B Field Research & Lead Generation</h3>
+
+<p>
+Conducted direct field research with businesses and workshops
+to understand product demand, identify interested prospects
+and collect market feedback. In one five-day campaign,
+14 businesses were contacted in Koye Feche and 4 showed
+specific product interest.
+</p>
+
+<div class="tags">
+<span class="tag">B2B Research</span>
+<span class="tag">Lead Generation</span>
+<span class="tag">Customer Engagement</span>
+<span class="tag">Field Research</span>
+</div>
+
+</div>
+
+
+<div class="case">
+
+<div class="case-number">CASE STUDY 02</div>
+
+<h3>Customer & Market Intelligence</h3>
+
+<p>
+Collected information about customer preferences, product
+demand, pricing and market conditions through direct
+customer conversations and field observation. Insights
+covered machinery, MDF, doors, dining chairs, CNC products
+and other furniture-related products.
+</p>
+
+<div class="tags">
+<span class="tag">Market Research</span>
+<span class="tag">Customer Insights</span>
+<span class="tag">Competitor Research</span>
+<span class="tag">Pricing Research</span>
+</div>
+
+</div>
+
+
+<div class="case">
+
+<div class="case-number">CASE STUDY 03</div>
+
+<h3>From Prospect to Opportunity</h3>
+
+<p>
+Supported the sales process by identifying interested
+business prospects, understanding their requirements,
+following up and connecting opportunities with the relevant
+team members. One example involved coordinating around a
+potential 300-piece dining chair order.
+</p>
+
+<div class="tags">
+<span class="tag">Sales Support</span>
+<span class="tag">Lead Follow-up</span>
+<span class="tag">B2B Sales</span>
+<span class="tag">Opportunity Research</span>
+</div>
+
+</div>
+
+</div>
+</div>
+</section>
+
+
+<!-- ABOUT -->
+<section id="about">
+<div class="container">
+
+<div class="section-label">About Me</div>
+
+<div class="about-grid">
+
+<div class="about-text">
+
+<h2 class="section-title">
+Marketing knowledge. Real sales experience.
+</h2>
+
+<p>
+I am Dawit Feyisa, a Marketing Management graduate with
+practical experience in B2B sales, marketing research,
+customer engagement and business development.
+</p>
+
+<p>
+My current work involves researching markets and dealers,
+generating and following up leads, supporting customers,
+analyzing product and stock information, preparing reports
+and supporting day-to-day sales operations.
+</p>
+
+<p>
+I use research, data and practical sales experience to help
+businesses understand their market and find better prospects.
+</p>
+
+</div>
+
+
+<div class="info-box">
+
+<div class="info-item">
+<strong>Education</strong>
+<span>BA in Marketing Management</span>
+</div>
+
+<div class="info-item">
+<strong>University</strong>
+<span>St. Mary's University</span>
+</div>
+
+<div class="info-item">
+<strong>Major GPA</strong>
+<span>3.7 / 4.0</span>
+</div>
+
+<div class="info-item">
+<strong>CGPA</strong>
+<span>3.56 / 4.0</span>
+</div>
+
+<div class="info-item">
+<strong>Experience</strong>
+<span>B2B Marketing & Sales</span>
+</div>
+
+</div>
+
+</div>
+</div>
+</section>
+
+
+<!-- SKILLS -->
+<section>
+<div class="container">
+
+<div class="section-label">Core Skills</div>
+
+<h2 class="section-title">
+Tools & capabilities.
+</h2>
+
+<p class="section-description">
+A practical combination of marketing, sales, research and data skills.
+</p>
+
+<div class="skills">
+
+<div>
+<div class="skill-top">
+<span>B2B Market Research</span>
+<span>Strong</span>
+</div>
+<div class="bar">
+<div class="fill" style="width:90%"></div>
+</div>
+</div>
+
+<div>
+<div class="skill-top">
+<span>Lead Generation</span>
+<span>Strong</span>
+</div>
+<div class="bar">
+<div class="fill" style="width:88%"></div>
+</div>
+</div>
+
+<div>
+<div class="skill-top">
+<span>Sales & Customer Engagement</span>
+<span>Strong</span>
+</div>
+<div class="bar">
+<div class="fill" style="width:88%"></div>
+</div>
+</div>
+
+<div>
+<div class="skill-top">
+<span>Excel & Google Sheets</span>
+<span>Strong</span>
+</div>
+<div class="bar">
+<div class="fill" style="width:82%"></div>
+</div>
+</div>
+
+<div>
+<div class="skill-top">
+<span>Digital Marketing</span>
+<span>Strong</span>
+</div>
+<div class="bar">
+<div class="fill" style="width:80%"></div>
+</div>
+</div>
+
+<div>
+<div class="skill-top">
+<span>Data Analysis</span>
+<span>Good</span>
+</div>
+<div class="bar">
+<div class="fill" style="width:75%"></div>
+</div>
+</div>
+
+</div>
+</div>
+</section>
+
+
+<!-- PROCESS -->
+<section id="process">
+<div class="container">
+
+<div class="section-label">How I Work</div>
+
+<h2 class="section-title">
+Simple. Organized. Business-focused.
+</h2>
+
+<div class="process">
+
+<div class="step">
+<div class="step-number">01</div>
+<h3>Understand</h3>
+<p>
+Understand your target market, ideal customer,
+research requirements and business objective.
+</p>
+</div>
+
+<div class="step">
+<div class="step-number">02</div>
+<h3>Research</h3>
+<p>
+Find relevant businesses, prospects and market
+information using structured research methods.
+</p>
+</div>
+
+<div class="step">
+<div class="step-number">03</div>
+<h3>Deliver</h3>
+<p>
+Organize the findings clearly in spreadsheets,
+reports or lead lists that your team can use.
+</p>
+</div>
+
+</div>
+</div>
+</section>
+
+
+<!-- CONTACT -->
+<section id="contact">
+<div class="container">
+
+<div class="cta">
+
+<div class="section-label">Let's Connect</div>
+
+<h2>
+Need research or qualified B2B leads?
+</h2>
+
+<p>
+If you need help finding prospects, researching a market,
+building a lead list or organizing business data,
+let's discuss your project.
+</p>
+
+<div class="buttons" style="justify-content:center;">
+
+<a class="btn btn-primary"
+href="mailto:dawitfeyisa@example.com">
+Email Me
+</a>
+
+<a class="btn btn-secondary"
+href="https://www.linkedin.com"
+target="_blank">
+LinkedIn
+</a>
+
+<a class="btn btn-secondary"
+href="https://www.upwork.com"
+target="_blank">
+Upwork
+</a>
+
+</div>
+
+</div>
+</div>
+</section>
+
+
+<!-- FOOTER -->
+<footer>
+<div class="container footer-inner">
+
+<div>
+© 2026 Dawit Feyisa. All rights reserved.
+</div>
+
+<div>
+B2B Market Research • Lead Generation • Marketing • Sales
+</div>
+
+</div>
+</footer>
+
+</body>
+</html>
