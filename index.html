@@ -6,9 +6,27 @@
 
 <title>Dawit Feyisa | B2B Market Research & Lead Generation</title>
 
-<meta name="description" content="Dawit Feyisa - B2B Market Research, Lead Generation, Sales Research, Marketing Research and Excel Data Analysis.">
+<meta name="description" content="Dawit Feyisa is a B2B Market Research and Lead Generation Specialist helping businesses find prospects, market intelligence and sales opportunities.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
 
 <style>
+
+:root{
+    --bg:#07110d;
+    --bg2:#0b1813;
+    --card:rgba(18,35,28,.72);
+    --border:rgba(255,255,255,.09);
+    --text:#f4f8f5;
+    --muted:#aab9b1;
+    --green:#5ee69a;
+    --green2:#21c77a;
+    --blue:#66b7ff;
+    --shadow:0 20px 70px rgba(0,0,0,.35);
+}
+
 *{
     margin:0;
     padding:0;
@@ -20,369 +38,520 @@ html{
 }
 
 body{
-    font-family:Arial, Helvetica, sans-serif;
-    background:#08111f;
-    color:#f5f7fa;
-    line-height:1.6;
+    font-family:Inter, sans-serif;
+    background:
+        radial-gradient(circle at 15% 10%, rgba(55,190,115,.14), transparent 28%),
+        radial-gradient(circle at 85% 25%, rgba(67,146,255,.10), transparent 25%),
+        var(--bg);
+    color:var(--text);
+    line-height:1.7;
+    overflow-x:hidden;
 }
 
 a{
-    text-decoration:none;
     color:inherit;
+    text-decoration:none;
 }
 
 .container{
-    width:90%;
-    max-width:1100px;
+    width:min(1120px,92%);
     margin:auto;
 }
 
 /* NAVIGATION */
+
 nav{
-    position:sticky;
+    position:fixed;
     top:0;
+    left:0;
+    width:100%;
     z-index:1000;
-    background:rgba(8,17,31,0.95);
-    border-bottom:1px solid #1b2b40;
-    backdrop-filter:blur(10px);
+    padding:18px 0;
+    background:rgba(7,17,13,.72);
+    backdrop-filter:blur(18px);
+    border-bottom:1px solid rgba(255,255,255,.05);
 }
 
 .nav-inner{
-    min-height:70px;
     display:flex;
     justify-content:space-between;
     align-items:center;
 }
 
 .logo{
-    font-size:20px;
-    font-weight:800;
+    font-family:"Space Grotesk";
+    font-size:22px;
+    font-weight:700;
 }
 
 .logo span{
-    color:#35d39a;
+    color:var(--green);
 }
 
 .nav-links{
     display:flex;
-    gap:25px;
-    font-size:14px;
+    gap:28px;
+    align-items:center;
 }
 
 .nav-links a{
-    color:#c9d2df;
+    color:var(--muted);
+    font-size:14px;
+    transition:.3s;
 }
 
 .nav-links a:hover{
-    color:#35d39a;
+    color:var(--green);
+}
+
+.nav-btn{
+    border:1px solid rgba(94,230,154,.35);
+    padding:9px 16px;
+    border-radius:30px;
 }
 
 /* HERO */
+
 .hero{
-    padding:100px 0 90px;
-    background:
-    radial-gradient(circle at top right,#123c42 0,transparent 35%),
-    radial-gradient(circle at bottom left,#102a40 0,transparent 35%);
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    padding:150px 0 90px;
+    position:relative;
+}
+
+.hero-grid{
+    display:grid;
+    grid-template-columns:1.2fr .8fr;
+    gap:70px;
+    align-items:center;
 }
 
 .badge{
-    display:inline-block;
+    display:inline-flex;
     padding:8px 14px;
-    border:1px solid #235d51;
     border-radius:30px;
-    color:#35d39a;
+    border:1px solid rgba(94,230,154,.25);
+    background:rgba(94,230,154,.06);
+    color:var(--green);
     font-size:13px;
     margin-bottom:22px;
-    background:#0c1d29;
 }
 
 .hero h1{
-    font-size:58px;
-    line-height:1.05;
-    max-width:850px;
+    font-family:"Space Grotesk";
+    font-size:clamp(45px,6vw,76px);
+    line-height:1.02;
+    letter-spacing:-3px;
     margin-bottom:25px;
 }
 
-.hero h1 span{
-    color:#35d39a;
+.gradient{
+    background:linear-gradient(90deg,var(--green),var(--blue));
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
 }
 
 .hero p{
-    color:#b7c2d0;
-    max-width:700px;
-    font-size:19px;
-    margin-bottom:35px;
+    color:var(--muted);
+    font-size:18px;
+    max-width:650px;
+    margin-bottom:32px;
 }
 
 .buttons{
     display:flex;
-    gap:15px;
+    gap:14px;
     flex-wrap:wrap;
 }
 
 .btn{
-    display:inline-block;
-    padding:14px 22px;
-    border-radius:10px;
-    font-weight:700;
-    font-size:15px;
-    border:1px solid #294057;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    padding:13px 21px;
+    border-radius:12px;
+    font-weight:600;
+    font-size:14px;
+    transition:.3s;
 }
 
 .btn-primary{
-    background:#35d39a;
-    color:#061019;
-    border:none;
+    color:#06110b;
+    background:var(--green);
 }
 
 .btn-primary:hover{
-    background:#49e5ab;
+    transform:translateY(-3px);
+    box-shadow:0 12px 35px rgba(94,230,154,.25);
+}
+
+.btn-secondary{
+    border:1px solid var(--border);
+    background:rgba(255,255,255,.04);
 }
 
 .btn-secondary:hover{
-    border-color:#35d39a;
-    color:#35d39a;
+    border-color:var(--green);
+    transform:translateY(-3px);
 }
 
-/* SECTION */
+/* HERO CARD */
+
+.profile-card{
+    position:relative;
+    padding:30px;
+    border:1px solid var(--border);
+    background:linear-gradient(145deg,rgba(24,47,37,.85),rgba(10,22,17,.8));
+    border-radius:28px;
+    box-shadow:var(--shadow);
+    animation:float 5s ease-in-out infinite;
+}
+
+.profile-circle{
+    width:145px;
+    height:145px;
+    border-radius:50%;
+    margin:0 auto 25px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-family:"Space Grotesk";
+    font-size:45px;
+    font-weight:700;
+    color:var(--green);
+    border:1px solid rgba(94,230,154,.35);
+    background:rgba(94,230,154,.08);
+}
+
+.profile-card h3{
+    text-align:center;
+    font-family:"Space Grotesk";
+    font-size:24px;
+}
+
+.profile-card .role{
+    text-align:center;
+    color:var(--green);
+    font-size:13px;
+    margin:4px 0 25px;
+}
+
+.mini-stat{
+    display:flex;
+    justify-content:space-between;
+    padding:13px 0;
+    border-top:1px solid var(--border);
+    font-size:14px;
+}
+
+.mini-stat span:first-child{
+    color:var(--muted);
+}
+
+/* SECTIONS */
+
 section{
-    padding:85px 0;
+    padding:100px 0;
 }
 
 .section-label{
-    color:#35d39a;
-    font-size:13px;
-    font-weight:800;
+    color:var(--green);
+    font-size:12px;
+    font-weight:700;
     letter-spacing:2px;
     text-transform:uppercase;
     margin-bottom:12px;
 }
 
 .section-title{
-    font-size:38px;
-    margin-bottom:15px;
+    font-family:"Space Grotesk";
+    font-size:clamp(32px,4vw,48px);
+    line-height:1.1;
+    margin-bottom:18px;
 }
 
-.section-description{
-    color:#9eabba;
+.section-intro{
+    color:var(--muted);
     max-width:700px;
     margin-bottom:45px;
 }
 
+/* ABOUT */
+
+.about-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:55px;
+}
+
+.about-text p{
+    color:var(--muted);
+    margin-bottom:18px;
+}
+
+.about-highlights{
+    display:grid;
+    gap:15px;
+}
+
+.highlight{
+    padding:22px;
+    border:1px solid var(--border);
+    background:var(--card);
+    border-radius:17px;
+    transition:.3s;
+}
+
+.highlight:hover{
+    transform:translateY(-5px);
+    border-color:rgba(94,230,154,.3);
+}
+
+.highlight h4{
+    margin-bottom:5px;
+}
+
+.highlight p{
+    color:var(--muted);
+    font-size:14px;
+}
+
 /* SERVICES */
-.services{
+
+.services-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+}
+
+.service{
+    padding:27px;
+    border:1px solid var(--border);
+    background:var(--card);
+    border-radius:20px;
+    transition:.35s;
+}
+
+.service:hover{
+    transform:translateY(-8px);
+    border-color:rgba(94,230,154,.3);
+    box-shadow:var(--shadow);
+}
+
+.icon{
+    width:48px;
+    height:48px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:13px;
+    background:rgba(94,230,154,.08);
+    color:var(--green);
+    font-size:22px;
+    margin-bottom:20px;
+}
+
+.service h3{
+    font-size:18px;
+    margin-bottom:9px;
+}
+
+.service p{
+    color:var(--muted);
+    font-size:14px;
+}
+
+/* STATS */
+
+.stats{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:15px;
+    margin-top:45px;
+}
+
+.stat{
+    text-align:center;
+    padding:25px 15px;
+    border:1px solid var(--border);
+    border-radius:18px;
+    background:rgba(255,255,255,.025);
+}
+
+.stat strong{
+    display:block;
+    font-family:"Space Grotesk";
+    font-size:34px;
+    color:var(--green);
+}
+
+.stat span{
+    color:var(--muted);
+    font-size:13px;
+}
+
+/* CASE STUDIES */
+
+.case-grid{
     display:grid;
     grid-template-columns:repeat(3,1fr);
     gap:20px;
 }
 
-.card{
-    background:#0d1928;
-    border:1px solid #1b2b40;
-    border-radius:16px;
-    padding:28px;
-    transition:0.3s;
-}
-
-.card:hover{
-    transform:translateY(-5px);
-    border-color:#35d39a;
-}
-
-.icon{
-    width:45px;
-    height:45px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    border-radius:10px;
-    background:#112c32;
-    color:#35d39a;
-    font-weight:bold;
-    margin-bottom:20px;
-}
-
-.card h3{
-    margin-bottom:10px;
-    font-size:20px;
-}
-
-.card p{
-    color:#9eabba;
-    font-size:14px;
-}
-
-/* CASE STUDIES */
-.case-grid{
-    display:grid;
-    gap:25px;
-}
-
 .case{
-    background:#0d1928;
-    border:1px solid #1b2b40;
-    border-radius:18px;
-    padding:30px;
+    overflow:hidden;
+    border-radius:22px;
+    border:1px solid var(--border);
+    background:var(--card);
+    transition:.35s;
+}
+
+.case:hover{
+    transform:translateY(-8px);
+    box-shadow:var(--shadow);
+}
+
+.case-top{
+    height:8px;
+    background:linear-gradient(90deg,var(--green),var(--blue));
+}
+
+.case-content{
+    padding:27px;
 }
 
 .case-number{
-    color:#35d39a;
-    font-size:13px;
-    font-weight:bold;
-    margin-bottom:10px;
+    color:var(--green);
+    font-size:12px;
+    font-weight:700;
+    letter-spacing:1px;
 }
 
 .case h3{
-    font-size:25px;
-    margin-bottom:12px;
+    font-family:"Space Grotesk";
+    font-size:22px;
+    line-height:1.25;
+    margin:12px 0;
 }
 
 .case p{
-    color:#aeb9c8;
-    margin-bottom:18px;
+    color:var(--muted);
+    font-size:14px;
 }
 
-.tags{
-    display:flex;
-    flex-wrap:wrap;
-    gap:8px;
+.case-result{
+    margin-top:20px;
+    padding-top:17px;
+    border-top:1px solid var(--border);
+    color:var(--text);
+    font-size:13px;
 }
 
-.tag{
-    background:#142337;
-    border:1px solid #243950;
-    padding:6px 10px;
-    border-radius:20px;
-    color:#cbd5e1;
-    font-size:12px;
+.case-result strong{
+    color:var(--green);
 }
 
-/* ABOUT */
-.about-grid{
+/* PROCESS */
+
+.process{
     display:grid;
-    grid-template-columns:1.2fr .8fr;
-    gap:50px;
-    align-items:start;
+    grid-template-columns:repeat(4,1fr);
+    gap:18px;
 }
 
-.about-text p{
-    color:#adb8c6;
-    margin-bottom:18px;
-}
-
-.info-box{
-    background:#0d1928;
-    border:1px solid #1b2b40;
-    border-radius:16px;
+.step{
     padding:25px;
+    border:1px solid var(--border);
+    border-radius:18px;
+    background:var(--card);
 }
 
-.info-item{
-    padding:15px 0;
-    border-bottom:1px solid #1b2b40;
+.step-number{
+    color:var(--green);
+    font-family:"Space Grotesk";
+    font-size:30px;
+    font-weight:700;
 }
 
-.info-item:last-child{
-    border-bottom:none;
+.step h3{
+    margin:10px 0 7px;
 }
 
-.info-item strong{
-    display:block;
-    margin-bottom:4px;
-}
-
-.info-item span{
-    color:#9eabba;
+.step p{
+    color:var(--muted);
     font-size:14px;
 }
 
 /* SKILLS */
+
+.skills-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:50px;
+}
+
 .skills{
-    display:grid;
-    gap:18px;
-    max-width:750px;
-}
-
-.skill-top{
     display:flex;
-    justify-content:space-between;
-    margin-bottom:7px;
-    font-size:14px;
+    flex-wrap:wrap;
+    gap:10px;
 }
 
-.skill-top span:last-child{
-    color:#35d39a;
+.skill{
+    padding:9px 14px;
+    border:1px solid var(--border);
+    border-radius:30px;
+    background:rgba(255,255,255,.035);
+    color:#dce8e1;
+    font-size:13px;
 }
 
-.bar{
-    height:8px;
-    background:#172538;
-    border-radius:20px;
-    overflow:hidden;
-}
+/* CONTACT */
 
-.fill{
-    height:100%;
-    background:#35d39a;
-    border-radius:20px;
-}
-
-/* PROCESS */
-.process{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:20px;
-}
-
-.step{
-    position:relative;
-    background:#0d1928;
-    border:1px solid #1b2b40;
-    border-radius:16px;
-    padding:28px;
-}
-
-.step-number{
-    font-size:35px;
-    font-weight:800;
-    color:#35d39a;
-    margin-bottom:12px;
-}
-
-.step h3{
-    margin-bottom:8px;
-}
-
-.step p{
-    color:#9eabba;
-    font-size:14px;
-}
-
-/* CTA */
-.cta{
-    background:linear-gradient(135deg,#0e2d31,#0d1928);
-    border:1px solid #235347;
-    border-radius:22px;
-    padding:55px;
+.contact-box{
     text-align:center;
+    padding:65px 25px;
+    border-radius:30px;
+    border:1px solid rgba(94,230,154,.18);
+    background:
+        radial-gradient(circle at center,rgba(94,230,154,.10),transparent 55%),
+        var(--card);
 }
 
-.cta h2{
-    font-size:40px;
-    margin-bottom:15px;
-}
-
-.cta p{
-    color:#adb8c6;
+.contact-box p{
     max-width:650px;
-    margin:0 auto 28px;
+    margin:0 auto 30px;
+    color:var(--muted);
+}
+
+.contact-info{
+    display:flex;
+    justify-content:center;
+    gap:14px;
+    flex-wrap:wrap;
+    margin-top:25px;
+}
+
+.contact-item{
+    padding:11px 16px;
+    border-radius:10px;
+    border:1px solid var(--border);
+    color:var(--muted);
+    font-size:14px;
+}
+
+.contact-item:hover{
+    color:var(--green);
+    border-color:rgba(94,230,154,.35);
 }
 
 /* FOOTER */
+
 footer{
     padding:35px 0;
-    border-top:1px solid #1b2b40;
-    color:#7f8b9b;
+    border-top:1px solid var(--border);
+    color:var(--muted);
     font-size:13px;
 }
 
@@ -390,101 +559,136 @@ footer{
     display:flex;
     justify-content:space-between;
     gap:20px;
-    flex-wrap:wrap;
+}
+
+/* ANIMATIONS */
+
+.reveal{
+    opacity:0;
+    transform:translateY(35px);
+    transition:opacity .8s ease, transform .8s ease;
+}
+
+.reveal.show{
+    opacity:1;
+    transform:translateY(0);
+}
+
+@keyframes float{
+    0%,100%{
+        transform:translateY(0);
+    }
+    50%{
+        transform:translateY(-12px);
+    }
 }
 
 /* MOBILE */
-@media(max-width:760px){
 
-    .container{
-        width:92%;
-    }
-
-    .nav-inner{
-        min-height:60px;
-    }
+@media(max-width:850px){
 
     .nav-links{
         display:none;
     }
 
     .hero{
-        padding:70px 0 65px;
+        padding-top:125px;
+    }
+
+    .hero-grid,
+    .about-grid,
+    .skills-grid{
+        grid-template-columns:1fr;
+    }
+
+    .hero-grid{
+        gap:45px;
     }
 
     .hero h1{
-        font-size:40px;
+        letter-spacing:-2px;
+    }
+
+    .services-grid,
+    .case-grid{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .process{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .stats{
+        grid-template-columns:1fr 1fr;
+    }
+
+}
+
+@media(max-width:560px){
+
+    section{
+        padding:75px 0;
+    }
+
+    .hero{
+        padding-top:110px;
+    }
+
+    .hero h1{
+        font-size:43px;
     }
 
     .hero p{
         font-size:16px;
     }
 
-    section{
-        padding:65px 0;
-    }
-
-    .section-title{
-        font-size:30px;
-    }
-
-    .services{
-        grid-template-columns:1fr;
-    }
-
-    .about-grid{
-        grid-template-columns:1fr;
-        gap:30px;
-    }
-
-    .process{
-        grid-template-columns:1fr;
-    }
-
-    .case{
-        padding:24px;
-    }
-
-    .case h3{
-        font-size:21px;
-    }
-
-    .cta{
-        padding:35px 20px;
-    }
-
-    .cta h2{
-        font-size:30px;
+    .buttons{
+        flex-direction:column;
     }
 
     .btn{
         width:100%;
-        text-align:center;
+    }
+
+    .services-grid,
+    .case-grid,
+    .process{
+        grid-template-columns:1fr;
+    }
+
+    .stats{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .profile-card{
+        padding:25px 20px;
     }
 
     .footer-inner{
         flex-direction:column;
+        text-align:center;
     }
+
 }
+
 </style>
 </head>
 
 <body>
 
 <!-- NAVIGATION -->
+
 <nav>
 <div class="container nav-inner">
 
-<div class="logo">
-Dawit<span>.</span>
-</div>
+<a href="#home" class="logo">Dawit<span>.</span></a>
 
 <div class="nav-links">
-<a href="#services">Services</a>
-<a href="#work">Work</a>
 <a href="#about">About</a>
-<a href="#process">Process</a>
-<a href="#contact">Contact</a>
+<a href="#services">Services</a>
+<a href="#work">Portfolio</a>
+<a href="#skills">Skills</a>
+<a href="#contact" class="nav-btn">Let's Talk</a>
 </div>
 
 </div>
@@ -492,448 +696,610 @@ Dawit<span>.</span>
 
 
 <!-- HERO -->
-<header class="hero">
-<div class="container">
 
-<div class="badge">
-B2B MARKET RESEARCH + LEAD GENERATION
-</div>
+<section class="hero" id="home">
+
+<div class="container hero-grid">
+
+<div class="reveal">
+
+<div class="badge">● AVAILABLE FOR FREELANCE WORK</div>
 
 <h1>
-I find the <span>companies, prospects</span> and market intelligence your sales team needs.
+B2B Market Research
+<span class="gradient">+</span>
+Lead Generation
 </h1>
 
 <p>
-I help businesses identify potential customers, research markets,
-build B2B prospect lists, organize sales data and turn research into
-useful business opportunities.
+I find the companies, prospects and market intelligence
+your sales team needs to build better opportunities.
 </p>
 
 <div class="buttons">
 
-<a class="btn btn-primary" href="#contact">
-Let's Work Together
+<a class="btn btn-primary"
+href="mailto:dawitfeyisa123@gmail.com">
+📧 Email Me
 </a>
 
-<a class="btn btn-secondary" href="#work">
-View My Work
+<a class="btn btn-secondary"
+href="https://www.linkedin.com/in/dawit-feyisa"
+target="_blank"
+rel="noopener noreferrer">
+💼 LinkedIn
+</a>
+
+<a class="btn btn-secondary"
+href="https://wa.me/251912679794"
+target="_blank"
+rel="noopener noreferrer">
+💬 WhatsApp
 </a>
 
 </div>
 
 </div>
-</header>
 
 
-<!-- SERVICES -->
-<section id="services">
-<div class="container">
+<div class="profile-card reveal">
 
-<div class="section-label">What I Do</div>
-
-<h2 class="section-title">
-Research that supports sales and growth.
-</h2>
-
-<p class="section-description">
-My work combines marketing research, sales experience,
-lead generation, business research and data organization.
-</p>
-
-<div class="services">
-
-<div class="card">
-<div class="icon">01</div>
-<h3>B2B Lead Generation</h3>
-<p>
-Research companies, prospects and decision-makers and organize
-qualified leads into structured Excel or Google Sheets lists.
-</p>
+<div class="profile-circle">
+DF
 </div>
 
-<div class="card">
-<div class="icon">02</div>
-<h3>Market Research</h3>
-<p>
-Research competitors, products, customers, dealers, distributors
-and market conditions to support business decisions.
-</p>
+<h3>Dawit Feyisa</h3>
+
+<div class="role">
+Marketing • Sales • Research
 </div>
 
-<div class="card">
-<div class="icon">03</div>
-<h3>Web & Sales Research</h3>
-<p>
-Find relevant businesses and market information online and
-organize the information into useful research reports.
-</p>
+<div class="mini-stat">
+<span>Based in</span>
+<strong>Addis Ababa, Ethiopia</strong>
 </div>
 
-<div class="card">
-<div class="icon">04</div>
-<h3>Excel & Data</h3>
-<p>
-Clean, organize, sort and analyze business data using Excel
-and Google Sheets, including tables and basic visual analysis.
-</p>
+<div class="mini-stat">
+<span>Experience</span>
+<strong>Marketing & Sales</strong>
 </div>
 
-<div class="card">
-<div class="icon">05</div>
-<h3>CRM & Follow-up</h3>
-<p>
-Support prospect follow-up, customer communication,
-lead organization and sales pipeline activities.
-</p>
+<div class="mini-stat">
+<span>Focus</span>
+<strong>B2B Growth</strong>
 </div>
 
-<div class="card">
-<div class="icon">06</div>
-<h3>Marketing Research</h3>
-<p>
-Collect customer feedback, identify purchasing needs and
-turn field observations into practical marketing insights.
-</p>
+<div class="mini-stat">
+<span>Education</span>
+<strong>BA Marketing Management</strong>
 </div>
 
 </div>
+
 </div>
+
 </section>
 
 
-<!-- WORK -->
-<section id="work">
+<!-- ABOUT -->
+
+<section id="about">
+
 <div class="container">
 
-<div class="section-label">Selected Work</div>
+<div class="section-label reveal">About Me</div>
 
-<h2 class="section-title">
-Real B2B research & sales experience.
+<h2 class="section-title reveal">
+Marketing knowledge backed by real field experience.
 </h2>
 
-<p class="section-description">
-Selected examples from my marketing and sales work in the
-furniture, machinery and semi-finished products market.
+<div class="about-grid">
+
+<div class="about-text reveal">
+
+<p>
+I'm Dawit Feyisa, a Marketing Management graduate and
+B2B market research and lead generation specialist based
+in Addis Ababa, Ethiopia.
 </p>
+
+<p>
+My professional experience combines marketing research,
+sales, customer engagement, business research, lead
+generation, CRM, Excel and data analysis.
+</p>
+
+<p>
+In my current Marketing and Sales role, I work with
+business customers, research markets and dealers,
+identify prospects, support sales activities and turn
+field information into useful business insights.
+</p>
+
+<p>
+I bring a practical approach to freelance projects:
+understand the target market, research the right prospects,
+organize reliable information and deliver clear,
+actionable results.
+</p>
+
+</div>
+
+
+<div class="about-highlights reveal">
+
+<div class="highlight">
+<h4>🎓 Marketing Management</h4>
+<p>
+BA in Marketing Management from St. Mary's University.
+Major GPA 3.7/4.0 and CGPA 3.56/4.0.
+</p>
+</div>
+
+<div class="highlight">
+<h4>🔎 Real Market Research</h4>
+<p>
+Hands-on experience conducting B2B field research,
+customer research and dealer research.
+</p>
+</div>
+
+<div class="highlight">
+<h4>🤝 Sales & Lead Generation</h4>
+<p>
+Experience with prospect identification, customer
+engagement, follow-up and sales support.
+</p>
+</div>
+
+<div class="highlight">
+<h4>📊 Data & Reporting</h4>
+<p>
+Excel, Google Sheets, data organization, analysis,
+reporting and business research.
+</p>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- SERVICES -->
+
+<section id="services">
+
+<div class="container">
+
+<div class="section-label reveal">What I Do</div>
+
+<h2 class="section-title reveal">
+Services for growing businesses.
+</h2>
+
+<p class="section-intro reveal">
+I help sales and marketing teams identify opportunities,
+understand markets and organize the information they need
+to make better business decisions.
+</p>
+
+
+<div class="services-grid">
+
+<div class="service reveal">
+<div class="icon">🎯</div>
+<h3>B2B Lead Generation</h3>
+<p>
+Find and organize relevant companies, prospects,
+buyers, dealers and decision-makers.
+</p>
+</div>
+
+<div class="service reveal">
+<div class="icon">🔎</div>
+<h3>Market Research</h3>
+<p>
+Research competitors, markets, products, industries
+and customer needs.
+</p>
+</div>
+
+<div class="service reveal">
+<div class="icon">🌐</div>
+<h3>Web Research</h3>
+<p>
+Collect, verify and organize business information
+from online sources.
+</p>
+</div>
+
+<div class="service reveal">
+<div class="icon">📈</div>
+<h3>Sales Research</h3>
+<p>
+Support sales teams with prospect research,
+business profiles and opportunity identification.
+</p>
+</div>
+
+<div class="service reveal">
+<div class="icon">📊</div>
+<h3>Excel & Data</h3>
+<p>
+Clean, organize, analyze and present business
+data using Excel and Google Sheets.
+</p>
+</div>
+
+<div class="service reveal">
+<div class="icon">🤝</div>
+<h3>CRM & Follow-up</h3>
+<p>
+Organize prospect information and support structured
+customer follow-up processes.
+</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- STATS -->
+
+<section>
+
+<div class="container">
+
+<div class="section-label reveal">Experience Snapshot</div>
+
+<h2 class="section-title reveal">
+Practical experience. Real business environments.
+</h2>
+
+<div class="stats">
+
+<div class="stat reveal">
+<strong>2+</strong>
+<span>Years in Marketing & Sales</span>
+</div>
+
+<div class="stat reveal">
+<strong>10+</strong>
+<span>Field Research Campaigns</span>
+</div>
+
+<div class="stat reveal">
+<strong>B2B</strong>
+<span>Sales & Market Focus</span>
+</div>
+
+<div class="stat reveal">
+<strong>3.7</strong>
+<span>Major GPA / 4.0</span>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- PORTFOLIO -->
+
+<section id="work">
+
+<div class="container">
+
+<div class="section-label reveal">Selected Work</div>
+
+<h2 class="section-title reveal">
+Real-world market research & sales experience.
+</h2>
+
+<p class="section-intro reveal">
+Selected examples from my professional experience.
+Customer names and private contact information are
+not displayed.
+</p>
+
 
 <div class="case-grid">
 
-<div class="case">
+
+<div class="case reveal">
+
+<div class="case-top"></div>
+
+<div class="case-content">
 
 <div class="case-number">CASE STUDY 01</div>
 
 <h3>B2B Field Research & Lead Generation</h3>
 
 <p>
-Conducted direct field research with businesses and workshops
-to understand product demand, identify interested prospects
-and collect market feedback. In one five-day campaign,
-14 businesses were contacted in Koye Feche and 4 showed
-specific product interest.
+Conducted field promotion and market research in
+Koye Feche, engaging businesses and identifying
+potential customers interested in machinery,
+semi-finished products and furniture-related products.
 </p>
 
-<div class="tags">
-<span class="tag">B2B Research</span>
-<span class="tag">Lead Generation</span>
-<span class="tag">Customer Engagement</span>
-<span class="tag">Field Research</span>
+<div class="case-result">
+<strong>Documented activity:</strong><br>
+14 businesses contacted and 4 identified as interested
+prospects during the reported campaign day.
 </div>
 
 </div>
 
+</div>
 
-<div class="case">
+
+<div class="case reveal">
+
+<div class="case-top"></div>
+
+<div class="case-content">
 
 <div class="case-number">CASE STUDY 02</div>
 
 <h3>Customer & Market Intelligence</h3>
 
 <p>
-Collected information about customer preferences, product
-demand, pricing and market conditions through direct
-customer conversations and field observation. Insights
-covered machinery, MDF, doors, dining chairs, CNC products
-and other furniture-related products.
+Gathered customer feedback through direct field
+engagement, including product preferences, purchasing
+needs, pricing feedback and market observations.
 </p>
 
-<div class="tags">
-<span class="tag">Market Research</span>
-<span class="tag">Customer Insights</span>
-<span class="tag">Competitor Research</span>
-<span class="tag">Pricing Research</span>
+<div class="case-result">
+<strong>Contribution:</strong><br>
+Organized field observations and customer feedback
+to support sales and marketing follow-up.
 </div>
 
 </div>
 
+</div>
 
-<div class="case">
+
+<div class="case reveal">
+
+<div class="case-top"></div>
+
+<div class="case-content">
 
 <div class="case-number">CASE STUDY 03</div>
 
-<h3>From Prospect to Opportunity</h3>
+<h3>From Prospect to Sales Opportunity</h3>
 
 <p>
-Supported the sales process by identifying interested
-business prospects, understanding their requirements,
-following up and connecting opportunities with the relevant
-team members. One example involved coordinating around a
-potential 300-piece dining chair order.
+Supported customer follow-up and coordination around
+a potential large dining-chair requirement, connecting
+the customer needs with the production team.
 </p>
 
-<div class="tags">
-<span class="tag">Sales Support</span>
-<span class="tag">Lead Follow-up</span>
-<span class="tag">B2B Sales</span>
-<span class="tag">Opportunity Research</span>
+<div class="case-result">
+<strong>Documented opportunity:</strong><br>
+A potential order involving approximately 300 dining
+chairs was identified and coordinated for follow-up.
 </div>
 
 </div>
 
 </div>
-</div>
-</section>
 
 
-<!-- ABOUT -->
-<section id="about">
-<div class="container">
-
-<div class="section-label">About Me</div>
-
-<div class="about-grid">
-
-<div class="about-text">
-
-<h2 class="section-title">
-Marketing knowledge. Real sales experience.
-</h2>
-
-<p>
-I am Dawit Feyisa, a Marketing Management graduate with
-practical experience in B2B sales, marketing research,
-customer engagement and business development.
-</p>
-
-<p>
-My current work involves researching markets and dealers,
-generating and following up leads, supporting customers,
-analyzing product and stock information, preparing reports
-and supporting day-to-day sales operations.
-</p>
-
-<p>
-I use research, data and practical sales experience to help
-businesses understand their market and find better prospects.
-</p>
-
-</div>
-
-
-<div class="info-box">
-
-<div class="info-item">
-<strong>Education</strong>
-<span>BA in Marketing Management</span>
-</div>
-
-<div class="info-item">
-<strong>University</strong>
-<span>St. Mary's University</span>
-</div>
-
-<div class="info-item">
-<strong>Major GPA</strong>
-<span>3.7 / 4.0</span>
-</div>
-
-<div class="info-item">
-<strong>CGPA</strong>
-<span>3.56 / 4.0</span>
-</div>
-
-<div class="info-item">
-<strong>Experience</strong>
-<span>B2B Marketing & Sales</span>
 </div>
 
 </div>
 
-</div>
-</div>
-</section>
-
-
-<!-- SKILLS -->
-<section>
-<div class="container">
-
-<div class="section-label">Core Skills</div>
-
-<h2 class="section-title">
-Tools & capabilities.
-</h2>
-
-<p class="section-description">
-A practical combination of marketing, sales, research and data skills.
-</p>
-
-<div class="skills">
-
-<div>
-<div class="skill-top">
-<span>B2B Market Research</span>
-<span>Strong</span>
-</div>
-<div class="bar">
-<div class="fill" style="width:90%"></div>
-</div>
-</div>
-
-<div>
-<div class="skill-top">
-<span>Lead Generation</span>
-<span>Strong</span>
-</div>
-<div class="bar">
-<div class="fill" style="width:88%"></div>
-</div>
-</div>
-
-<div>
-<div class="skill-top">
-<span>Sales & Customer Engagement</span>
-<span>Strong</span>
-</div>
-<div class="bar">
-<div class="fill" style="width:88%"></div>
-</div>
-</div>
-
-<div>
-<div class="skill-top">
-<span>Excel & Google Sheets</span>
-<span>Strong</span>
-</div>
-<div class="bar">
-<div class="fill" style="width:82%"></div>
-</div>
-</div>
-
-<div>
-<div class="skill-top">
-<span>Digital Marketing</span>
-<span>Strong</span>
-</div>
-<div class="bar">
-<div class="fill" style="width:80%"></div>
-</div>
-</div>
-
-<div>
-<div class="skill-top">
-<span>Data Analysis</span>
-<span>Good</span>
-</div>
-<div class="bar">
-<div class="fill" style="width:75%"></div>
-</div>
-</div>
-
-</div>
-</div>
 </section>
 
 
 <!-- PROCESS -->
-<section id="process">
+
+<section>
+
 <div class="container">
 
-<div class="section-label">How I Work</div>
+<div class="section-label reveal">My Process</div>
 
-<h2 class="section-title">
-Simple. Organized. Business-focused.
+<h2 class="section-title reveal">
+Simple, organized and business-focused.
 </h2>
 
 <div class="process">
 
-<div class="step">
+<div class="step reveal">
 <div class="step-number">01</div>
 <h3>Understand</h3>
 <p>
-Understand your target market, ideal customer,
-research requirements and business objective.
+Understand your target market, ideal customer
+and project requirements.
 </p>
 </div>
 
-<div class="step">
+<div class="step reveal">
 <div class="step-number">02</div>
 <h3>Research</h3>
 <p>
-Find relevant businesses, prospects and market
-information using structured research methods.
+Find relevant companies, prospects, products,
+competitors and market information.
 </p>
 </div>
 
-<div class="step">
+<div class="step reveal">
 <div class="step-number">03</div>
+<h3>Organize</h3>
+<p>
+Clean and structure information using spreadsheets,
+research frameworks and clear categories.
+</p>
+</div>
+
+<div class="step reveal">
+<div class="step-number">04</div>
 <h3>Deliver</h3>
 <p>
-Organize the findings clearly in spreadsheets,
-reports or lead lists that your team can use.
+Provide a clear, organized deliverable that your
+sales or marketing team can actually use.
 </p>
 </div>
 
 </div>
+
 </div>
+
+</section>
+
+
+<!-- SKILLS -->
+
+<section id="skills">
+
+<div class="container">
+
+<div class="section-label reveal">Skills</div>
+
+<h2 class="section-title reveal">
+Tools, knowledge and capabilities.
+</h2>
+
+<div class="skills-grid">
+
+<div class="reveal">
+
+<h3 style="margin-bottom:20px;">Professional Skills</h3>
+
+<div class="skills">
+
+<span class="skill">B2B Lead Generation</span>
+<span class="skill">Market Research</span>
+<span class="skill">Web Research</span>
+<span class="skill">Sales Research</span>
+<span class="skill">Customer Research</span>
+<span class="skill">Dealer Research</span>
+<span class="skill">Business Development</span>
+<span class="skill">CRM</span>
+<span class="skill">Customer Engagement</span>
+<span class="skill">Digital Marketing</span>
+<span class="skill">Data Analysis</span>
+<span class="skill">Reporting</span>
+
+</div>
+
+</div>
+
+
+<div class="reveal">
+
+<h3 style="margin-bottom:20px;">Tools & Education</h3>
+
+<div class="skills">
+
+<span class="skill">Microsoft Excel</span>
+<span class="skill">Google Sheets</span>
+<span class="skill">Microsoft Word</span>
+<span class="skill">PowerPoint</span>
+<span class="skill">Canva</span>
+<span class="skill">SQL</span>
+<span class="skill">HTML</span>
+<span class="skill">AI Tools</span>
+<span class="skill">BA Marketing Management</span>
+<span class="skill">Data Analysis Nano Degree</span>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
 </section>
 
 
 <!-- CONTACT -->
+
 <section id="contact">
+
 <div class="container">
 
-<div class="cta">
+<div class="contact-box reveal">
 
-<div class="section-label">Let's Connect</div>
+<div class="section-label">Let's Work Together</div>
 
-<h2>
-Need research or qualified B2B leads?
+<h2 class="section-title">
+Have a research or lead generation project?
 </h2>
 
 <p>
-If you need help finding prospects, researching a market,
-building a lead list or organizing business data,
-let's discuss your project.
+If you need help finding B2B prospects, researching a
+market, building a business list or organizing sales
+intelligence, let's talk about your project.
 </p>
 
 <div class="buttons" style="justify-content:center;">
 
 <a class="btn btn-primary"
-href="mailto:dawitfeyisa@example.com">
-Email Me
+href="mailto:dawitfeyisa123@gmail.com">
+📧 Email Me
 </a>
 
 <a class="btn btn-secondary"
-href="https://www.linkedin.com"
-target="_blank">
-LinkedIn
+href="https://www.linkedin.com/in/dawit-feyisa"
+target="_blank"
+rel="noopener noreferrer">
+💼 LinkedIn
 </a>
 
 <a class="btn btn-secondary"
-href="https://www.upwork.com"
-target="_blank">
-Upwork
+href="tel:+251912679794">
+📞 Call Me
+</a>
+
+<a class="btn btn-secondary"
+href="https://wa.me/251912679794"
+target="_blank"
+rel="noopener noreferrer">
+💬 WhatsApp
+</a>
+
+</div>
+
+
+<div class="contact-info">
+
+<a class="contact-item"
+href="mailto:dawitfeyisa123@gmail.com">
+dawitfeyisa123@gmail.com
+</a>
+
+<a class="contact-item"
+href="tel:+251912679794">
++251 912 679 794
 </a>
 
 </div>
 
 </div>
+
 </div>
+
 </section>
 
 
 <!-- FOOTER -->
+
 <footer>
+
 <div class="container footer-inner">
 
 <div>
@@ -941,11 +1307,64 @@ Upwork
 </div>
 
 <div>
-B2B Market Research • Lead Generation • Marketing • Sales
+B2B Market Research • Lead Generation • Sales Research
 </div>
 
 </div>
+
 </footer>
+
+
+<script>
+
+/* SCROLL REVEAL */
+
+const reveals = document.querySelectorAll(".reveal");
+
+const observer = new IntersectionObserver(
+(entries)=>{
+    entries.forEach(entry=>{
+        if(entry.isIntersecting){
+            entry.target.classList.add("show");
+        }
+    });
+},
+{
+    threshold:0.12
+}
+);
+
+reveals.forEach(el=>observer.observe(el));
+
+
+/* ACTIVE NAVIGATION */
+
+const sections = document.querySelectorAll("section[id]");
+const navLinks = document.querySelectorAll(".nav-links a");
+
+window.addEventListener("scroll",()=>{
+
+    let current="";
+
+    sections.forEach(section=>{
+        const sectionTop=section.offsetTop-150;
+
+        if(window.scrollY>=sectionTop){
+            current=section.getAttribute("id");
+        }
+    });
+
+    navLinks.forEach(link=>{
+        link.style.color="";
+
+        if(link.getAttribute("href")==="#"+current){
+            link.style.color="var(--green)";
+        }
+    });
+
+});
+
+</script>
 
 </body>
 </html>
