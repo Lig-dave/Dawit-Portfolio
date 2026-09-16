@@ -6,26 +6,62 @@
 
 <title>Dawit Feyisa | B2B Market Research & Lead Generation</title>
 
-<meta name="description" content="Dawit Feyisa is a B2B Market Research and Lead Generation Specialist helping businesses find prospects, market intelligence and sales opportunities.">
+<meta name="description" content="Dawit Feyisa - B2B Market Research, Lead Generation, Sales Research and Data Analysis Specialist.">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
 
 <style>
 
+/* =====================================================
+   VARIABLES
+===================================================== */
+
 :root{
     --bg:#07110d;
-    --bg2:#0b1813;
-    --card:rgba(18,35,28,.72);
+    --bg2:#0c1913;
+    --card:rgba(18,34,27,.72);
+    --card-solid:#102018;
+
+    --text:#f5faf7;
+    --muted:#a9b8b0;
+
+    --primary:#5ee69a;
+    --primary2:#22c77a;
+    --blue:#67b7ff;
+
     --border:rgba(255,255,255,.09);
-    --text:#f4f8f5;
-    --muted:#aab9b1;
-    --green:#5ee69a;
-    --green2:#21c77a;
-    --blue:#66b7ff;
-    --shadow:0 20px 70px rgba(0,0,0,.35);
+
+    --shadow:0 25px 80px rgba(0,0,0,.35);
+
+    --nav:rgba(7,17,13,.72);
 }
+
+
+/* LIGHT MODE */
+
+body.light{
+    --bg:#f4f8f5;
+    --bg2:#ffffff;
+    --card:rgba(255,255,255,.78);
+    --card-solid:#ffffff;
+
+    --text:#102018;
+    --muted:#617168;
+
+    --border:rgba(16,32,24,.12);
+
+    --shadow:0 20px 60px rgba(20,50,35,.12);
+
+    --nav:rgba(255,255,255,.78);
+}
+
+
+/* =====================================================
+   RESET
+===================================================== */
 
 *{
     margin:0;
@@ -38,14 +74,22 @@ html{
 }
 
 body{
-    font-family:Inter, sans-serif;
+    font-family:Inter,sans-serif;
+
     background:
-        radial-gradient(circle at 15% 10%, rgba(55,190,115,.14), transparent 28%),
-        radial-gradient(circle at 85% 25%, rgba(67,146,255,.10), transparent 25%),
+        radial-gradient(circle at 10% 10%,rgba(94,230,154,.12),transparent 30%),
+        radial-gradient(circle at 90% 25%,rgba(102,183,255,.10),transparent 28%),
         var(--bg);
+
     color:var(--text);
+
     line-height:1.7;
+
     overflow-x:hidden;
+
+    transition:
+        background .4s ease,
+        color .4s ease;
 }
 
 a{
@@ -53,23 +97,101 @@ a{
     text-decoration:none;
 }
 
+img{
+    max-width:100%;
+    display:block;
+}
+
 .container{
-    width:min(1120px,92%);
+    width:min(1140px,92%);
     margin:auto;
 }
 
-/* NAVIGATION */
+
+/* =====================================================
+   ANIMATED BACKGROUND
+===================================================== */
+
+.background{
+    position:fixed;
+    inset:0;
+
+    pointer-events:none;
+
+    overflow:hidden;
+
+    z-index:-1;
+}
+
+.blob{
+    position:absolute;
+
+    width:280px;
+    height:280px;
+
+    border-radius:50%;
+
+    filter:blur(70px);
+
+    opacity:.14;
+
+    animation:moveBlob 14s ease-in-out infinite alternate;
+}
+
+.blob.one{
+    background:var(--primary);
+    top:8%;
+    left:-100px;
+}
+
+.blob.two{
+    background:var(--blue);
+    right:-100px;
+    top:45%;
+    animation-delay:-5s;
+}
+
+.blob.three{
+    background:#8d6cff;
+    left:40%;
+    bottom:-150px;
+    animation-delay:-8s;
+}
+
+@keyframes moveBlob{
+    from{
+        transform:translate(0,0) scale(1);
+    }
+
+    to{
+        transform:translate(90px,-60px) scale(1.25);
+    }
+}
+
+
+/* =====================================================
+   NAVIGATION
+===================================================== */
 
 nav{
     position:fixed;
+
     top:0;
     left:0;
+
     width:100%;
+
     z-index:1000;
-    padding:18px 0;
-    background:rgba(7,17,13,.72);
-    backdrop-filter:blur(18px);
-    border-bottom:1px solid rgba(255,255,255,.05);
+
+    padding:16px 0;
+
+    background:var(--nav);
+
+    backdrop-filter:blur(20px);
+
+    border-bottom:1px solid var(--border);
+
+    transition:.3s;
 }
 
 .nav-inner{
@@ -80,233 +202,494 @@ nav{
 
 .logo{
     font-family:"Space Grotesk";
-    font-size:22px;
+
+    font-size:23px;
+
     font-weight:700;
 }
 
 .logo span{
-    color:var(--green);
+    color:var(--primary);
+}
+
+.nav-right{
+    display:flex;
+    align-items:center;
+    gap:18px;
 }
 
 .nav-links{
     display:flex;
-    gap:28px;
     align-items:center;
+    gap:25px;
 }
 
 .nav-links a{
     color:var(--muted);
+
     font-size:14px;
+
     transition:.3s;
 }
 
 .nav-links a:hover{
-    color:var(--green);
+    color:var(--primary);
 }
 
-.nav-btn{
-    border:1px solid rgba(94,230,154,.35);
-    padding:9px 16px;
-    border-radius:30px;
+
+/* THEME BUTTON */
+
+.theme-toggle{
+    width:43px;
+    height:43px;
+
+    border-radius:50%;
+
+    border:1px solid var(--border);
+
+    background:var(--card);
+
+    color:var(--text);
+
+    cursor:pointer;
+
+    font-size:18px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    transition:.3s;
 }
 
-/* HERO */
+.theme-toggle:hover{
+    transform:rotate(20deg) scale(1.08);
+
+    border-color:var(--primary);
+}
+
+
+/* =====================================================
+   HERO
+===================================================== */
 
 .hero{
     min-height:100vh;
+
     display:flex;
     align-items:center;
-    padding:150px 0 90px;
+
+    padding:150px 0 100px;
+
     position:relative;
 }
 
 .hero-grid{
     display:grid;
-    grid-template-columns:1.2fr .8fr;
+
+    grid-template-columns:1.15fr .85fr;
+
     gap:70px;
+
     align-items:center;
 }
 
 .badge{
     display:inline-flex;
+
+    align-items:center;
+
+    gap:8px;
+
     padding:8px 14px;
+
     border-radius:30px;
+
     border:1px solid rgba(94,230,154,.25);
+
     background:rgba(94,230,154,.06);
-    color:var(--green);
-    font-size:13px;
+
+    color:var(--primary);
+
+    font-size:12px;
+
+    font-weight:600;
+
     margin-bottom:22px;
+
+    animation:pulseBadge 3s infinite;
+}
+
+@keyframes pulseBadge{
+
+    0%,100%{
+        box-shadow:0 0 0 rgba(94,230,154,0);
+    }
+
+    50%{
+        box-shadow:0 0 25px rgba(94,230,154,.12);
+    }
+
 }
 
 .hero h1{
     font-family:"Space Grotesk";
-    font-size:clamp(45px,6vw,76px);
+
+    font-size:clamp(46px,6vw,78px);
+
     line-height:1.02;
+
     letter-spacing:-3px;
+
     margin-bottom:25px;
 }
 
 .gradient{
-    background:linear-gradient(90deg,var(--green),var(--blue));
+    background:linear-gradient(
+        90deg,
+        var(--primary),
+        var(--blue)
+    );
+
     -webkit-background-clip:text;
+
     background-clip:text;
+
     color:transparent;
+
+    background-size:200% auto;
+
+    animation:gradientMove 5s linear infinite;
+}
+
+@keyframes gradientMove{
+
+    to{
+        background-position:200% center;
+    }
+
 }
 
 .hero p{
     color:var(--muted);
+
     font-size:18px;
+
     max-width:650px;
+
     margin-bottom:32px;
 }
 
+
+/* =====================================================
+   BUTTONS
+===================================================== */
+
 .buttons{
     display:flex;
-    gap:14px;
+
     flex-wrap:wrap;
+
+    gap:13px;
 }
 
 .btn{
+    position:relative;
+
     display:inline-flex;
+
     align-items:center;
+
     justify-content:center;
-    padding:13px 21px;
-    border-radius:12px;
-    font-weight:600;
+
+    gap:8px;
+
+    padding:13px 20px;
+
+    border-radius:13px;
+
     font-size:14px;
-    transition:.3s;
+
+    font-weight:700;
+
+    transition:.35s;
+
+    overflow:hidden;
+}
+
+.btn::before{
+    content:"";
+
+    position:absolute;
+
+    width:0;
+    height:0;
+
+    border-radius:50%;
+
+    background:rgba(255,255,255,.18);
+
+    transform:translate(-50%,-50%);
+
+    left:50%;
+    top:50%;
+
+    transition:.5s;
+}
+
+.btn:hover::before{
+    width:250px;
+    height:250px;
+}
+
+.btn span,
+.btn{
+    isolation:isolate;
 }
 
 .btn-primary{
-    color:#06110b;
-    background:var(--green);
+    background:var(--primary);
+
+    color:#06120b;
+
+    box-shadow:0 10px 30px rgba(94,230,154,.15);
 }
 
 .btn-primary:hover{
-    transform:translateY(-3px);
-    box-shadow:0 12px 35px rgba(94,230,154,.25);
+    transform:translateY(-4px);
+
+    box-shadow:
+        0 15px 40px rgba(94,230,154,.25);
 }
 
 .btn-secondary{
+    background:var(--card);
+
     border:1px solid var(--border);
-    background:rgba(255,255,255,.04);
 }
 
 .btn-secondary:hover{
-    border-color:var(--green);
-    transform:translateY(-3px);
+    transform:translateY(-4px);
+
+    border-color:var(--primary);
+
+    box-shadow:0 10px 30px rgba(0,0,0,.12);
 }
 
-/* HERO CARD */
+
+/* =====================================================
+   PROFILE CARD
+===================================================== */
 
 .profile-card{
     position:relative;
+
     padding:30px;
-    border:1px solid var(--border);
-    background:linear-gradient(145deg,rgba(24,47,37,.85),rgba(10,22,17,.8));
+
     border-radius:28px;
+
+    border:1px solid var(--border);
+
+    background:var(--card);
+
+    backdrop-filter:blur(18px);
+
     box-shadow:var(--shadow);
-    animation:float 5s ease-in-out infinite;
+
+    animation:floatCard 6s ease-in-out infinite;
+
+    overflow:hidden;
 }
 
-.profile-circle{
-    width:145px;
-    height:145px;
+.profile-card::before{
+    content:"";
+
+    position:absolute;
+
+    width:180px;
+    height:180px;
+
     border-radius:50%;
-    margin:0 auto 25px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-family:"Space Grotesk";
-    font-size:45px;
-    font-weight:700;
-    color:var(--green);
-    border:1px solid rgba(94,230,154,.35);
-    background:rgba(94,230,154,.08);
+
+    border:1px solid rgba(94,230,154,.18);
+
+    top:-90px;
+    right:-60px;
+}
+
+.profile-card::after{
+    content:"";
+
+    position:absolute;
+
+    width:120px;
+    height:120px;
+
+    border-radius:50%;
+
+    border:1px solid rgba(102,183,255,.18);
+
+    bottom:-60px;
+    left:-40px;
+}
+
+@keyframes floatCard{
+
+    0%,100%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-12px);
+    }
+
+}
+
+.profile-photo{
+    width:180px;
+    height:180px;
+
+    margin:0 auto 22px;
+
+    border-radius:50%;
+
+    object-fit:cover;
+
+    object-position:center top;
+
+    border:4px solid rgba(94,230,154,.35);
+
+    box-shadow:
+        0 0 0 10px rgba(94,230,154,.04),
+        0 15px 45px rgba(0,0,0,.25);
 }
 
 .profile-card h3{
     text-align:center;
+
     font-family:"Space Grotesk";
-    font-size:24px;
+
+    font-size:26px;
 }
 
-.profile-card .role{
+.profile-role{
     text-align:center;
-    color:var(--green);
+
+    color:var(--primary);
+
     font-size:13px;
+
     margin:4px 0 25px;
 }
 
 .mini-stat{
     display:flex;
+
     justify-content:space-between;
+
+    gap:15px;
+
     padding:13px 0;
+
     border-top:1px solid var(--border);
-    font-size:14px;
+
+    font-size:13px;
 }
 
-.mini-stat span:first-child{
+.mini-stat span{
     color:var(--muted);
 }
 
-/* SECTIONS */
+.mini-stat strong{
+    text-align:right;
+}
+
+
+/* =====================================================
+   SECTIONS
+===================================================== */
 
 section{
     padding:100px 0;
 }
 
 .section-label{
-    color:var(--green);
+    color:var(--primary);
+
     font-size:12px;
-    font-weight:700;
+
+    font-weight:800;
+
     letter-spacing:2px;
+
     text-transform:uppercase;
+
     margin-bottom:12px;
 }
 
 .section-title{
     font-family:"Space Grotesk";
-    font-size:clamp(32px,4vw,48px);
+
+    font-size:clamp(32px,4vw,50px);
+
     line-height:1.1;
+
     margin-bottom:18px;
+
+    letter-spacing:-1.5px;
 }
 
 .section-intro{
     color:var(--muted);
+
     max-width:700px;
+
     margin-bottom:45px;
 }
 
-/* ABOUT */
+
+/* =====================================================
+   ABOUT
+===================================================== */
 
 .about-grid{
     display:grid;
+
     grid-template-columns:1fr 1fr;
-    gap:55px;
+
+    gap:60px;
 }
 
 .about-text p{
     color:var(--muted);
+
     margin-bottom:18px;
 }
 
 .about-highlights{
     display:grid;
+
     gap:15px;
 }
 
 .highlight{
-    padding:22px;
+    padding:23px;
+
+    border-radius:18px;
+
     border:1px solid var(--border);
+
     background:var(--card);
-    border-radius:17px;
-    transition:.3s;
+
+    backdrop-filter:blur(10px);
+
+    transition:.35s;
 }
 
 .highlight:hover{
-    transform:translateY(-5px);
-    border-color:rgba(94,230,154,.3);
+    transform:translateX(6px);
+
+    border-color:rgba(94,230,154,.35);
 }
 
 .highlight h4{
@@ -315,163 +698,285 @@ section{
 
 .highlight p{
     color:var(--muted);
+
     font-size:14px;
 }
 
-/* SERVICES */
+
+/* =====================================================
+   SERVICES
+===================================================== */
 
 .services-grid{
     display:grid;
+
     grid-template-columns:repeat(3,1fr);
+
     gap:18px;
 }
 
 .service{
-    padding:27px;
-    border:1px solid var(--border);
-    background:var(--card);
+    padding:28px;
+
     border-radius:20px;
-    transition:.35s;
+
+    border:1px solid var(--border);
+
+    background:var(--card);
+
+    transition:.4s;
+
+    position:relative;
+
+    overflow:hidden;
+}
+
+.service::after{
+    content:"";
+
+    position:absolute;
+
+    width:80px;
+    height:80px;
+
+    border-radius:50%;
+
+    background:var(--primary);
+
+    opacity:.04;
+
+    right:-25px;
+    bottom:-25px;
+
+    transition:.4s;
+}
+
+.service:hover::after{
+    transform:scale(2.5);
 }
 
 .service:hover{
     transform:translateY(-8px);
+
     border-color:rgba(94,230,154,.3);
+
     box-shadow:var(--shadow);
 }
 
 .icon{
-    width:48px;
-    height:48px;
+    width:50px;
+    height:50px;
+
     display:flex;
+
     align-items:center;
     justify-content:center;
-    border-radius:13px;
+
+    border-radius:14px;
+
     background:rgba(94,230,154,.08);
-    color:var(--green);
+
+    color:var(--primary);
+
     font-size:22px;
+
     margin-bottom:20px;
+
+    transition:.35s;
+}
+
+.service:hover .icon{
+    transform:rotate(-8deg) scale(1.08);
 }
 
 .service h3{
     font-size:18px;
+
     margin-bottom:9px;
 }
 
 .service p{
     color:var(--muted);
+
     font-size:14px;
 }
 
-/* STATS */
+
+/* =====================================================
+   STATS
+===================================================== */
 
 .stats{
     display:grid;
+
     grid-template-columns:repeat(4,1fr);
+
     gap:15px;
+
     margin-top:45px;
 }
 
 .stat{
     text-align:center;
+
     padding:25px 15px;
-    border:1px solid var(--border);
+
     border-radius:18px;
-    background:rgba(255,255,255,.025);
+
+    border:1px solid var(--border);
+
+    background:var(--card);
+
+    transition:.3s;
+}
+
+.stat:hover{
+    transform:translateY(-5px);
+
+    border-color:rgba(94,230,154,.3);
 }
 
 .stat strong{
     display:block;
+
     font-family:"Space Grotesk";
-    font-size:34px;
-    color:var(--green);
+
+    font-size:36px;
+
+    color:var(--primary);
 }
 
 .stat span{
     color:var(--muted);
+
     font-size:13px;
 }
 
-/* CASE STUDIES */
+
+/* =====================================================
+   CASE STUDIES
+===================================================== */
 
 .case-grid{
     display:grid;
+
     grid-template-columns:repeat(3,1fr);
+
     gap:20px;
 }
 
 .case{
     overflow:hidden;
+
     border-radius:22px;
+
     border:1px solid var(--border);
+
     background:var(--card);
-    transition:.35s;
+
+    transition:.4s;
 }
 
 .case:hover{
-    transform:translateY(-8px);
+    transform:translateY(-9px);
+
     box-shadow:var(--shadow);
 }
 
 .case-top{
-    height:8px;
-    background:linear-gradient(90deg,var(--green),var(--blue));
+    height:7px;
+
+    background:linear-gradient(
+        90deg,
+        var(--primary),
+        var(--blue)
+    );
+
+    background-size:200%;
+
+    animation:gradientMove 5s linear infinite;
 }
 
 .case-content{
-    padding:27px;
+    padding:28px;
 }
 
 .case-number{
-    color:var(--green);
-    font-size:12px;
-    font-weight:700;
-    letter-spacing:1px;
+    color:var(--primary);
+
+    font-size:11px;
+
+    font-weight:800;
+
+    letter-spacing:1.5px;
 }
 
 .case h3{
     font-family:"Space Grotesk";
+
     font-size:22px;
+
     line-height:1.25;
+
     margin:12px 0;
 }
 
 .case p{
     color:var(--muted);
+
     font-size:14px;
 }
 
 .case-result{
     margin-top:20px;
+
     padding-top:17px;
+
     border-top:1px solid var(--border);
-    color:var(--text);
+
     font-size:13px;
 }
 
 .case-result strong{
-    color:var(--green);
+    color:var(--primary);
 }
 
-/* PROCESS */
+
+/* =====================================================
+   PROCESS
+===================================================== */
 
 .process{
     display:grid;
+
     grid-template-columns:repeat(4,1fr);
+
     gap:18px;
 }
 
 .step{
     padding:25px;
+
     border:1px solid var(--border);
+
     border-radius:18px;
+
     background:var(--card);
+
+    transition:.35s;
+}
+
+.step:hover{
+    transform:translateY(-7px);
 }
 
 .step-number{
-    color:var(--green);
+    color:var(--primary);
+
     font-family:"Space Grotesk";
+
     font-size:30px;
+
     font-weight:700;
 }
 
@@ -481,132 +986,188 @@ section{
 
 .step p{
     color:var(--muted);
+
     font-size:14px;
 }
 
-/* SKILLS */
+
+/* =====================================================
+   SKILLS
+===================================================== */
 
 .skills-grid{
     display:grid;
+
     grid-template-columns:1fr 1fr;
+
     gap:50px;
 }
 
 .skills{
     display:flex;
+
     flex-wrap:wrap;
+
     gap:10px;
 }
 
 .skill{
     padding:9px 14px;
-    border:1px solid var(--border);
+
     border-radius:30px;
-    background:rgba(255,255,255,.035);
-    color:#dce8e1;
+
+    border:1px solid var(--border);
+
+    background:var(--card);
+
+    color:var(--text);
+
     font-size:13px;
+
+    transition:.3s;
 }
 
-/* CONTACT */
+.skill:hover{
+    transform:translateY(-3px);
+
+    border-color:var(--primary);
+
+    color:var(--primary);
+}
+
+
+/* =====================================================
+   CONTACT
+===================================================== */
 
 .contact-box{
     text-align:center;
-    padding:65px 25px;
+
+    padding:70px 25px;
+
     border-radius:30px;
+
     border:1px solid rgba(94,230,154,.18);
+
     background:
-        radial-gradient(circle at center,rgba(94,230,154,.10),transparent 55%),
+        radial-gradient(
+            circle at center,
+            rgba(94,230,154,.10),
+            transparent 55%
+        ),
         var(--card);
+
+    box-shadow:var(--shadow);
 }
 
 .contact-box p{
-    max-width:650px;
+    max-width:680px;
+
     margin:0 auto 30px;
+
     color:var(--muted);
 }
 
 .contact-info{
     display:flex;
+
     justify-content:center;
-    gap:14px;
+
     flex-wrap:wrap;
+
+    gap:12px;
+
     margin-top:25px;
 }
 
 .contact-item{
-    padding:11px 16px;
+    padding:10px 15px;
+
     border-radius:10px;
+
     border:1px solid var(--border);
+
     color:var(--muted);
-    font-size:14px;
+
+    font-size:13px;
+
+    transition:.3s;
 }
 
 .contact-item:hover{
-    color:var(--green);
-    border-color:rgba(94,230,154,.35);
+    color:var(--primary);
+
+    border-color:var(--primary);
 }
 
-/* FOOTER */
+
+/* =====================================================
+   FOOTER
+===================================================== */
 
 footer{
     padding:35px 0;
+
     border-top:1px solid var(--border);
+
     color:var(--muted);
+
     font-size:13px;
 }
 
 .footer-inner{
     display:flex;
+
     justify-content:space-between;
+
     gap:20px;
 }
 
-/* ANIMATIONS */
+
+/* =====================================================
+   SCROLL REVEAL
+===================================================== */
 
 .reveal{
     opacity:0;
+
     transform:translateY(35px);
-    transition:opacity .8s ease, transform .8s ease;
+
+    transition:
+        opacity .8s ease,
+        transform .8s ease;
 }
 
 .reveal.show{
     opacity:1;
+
     transform:translateY(0);
 }
 
-@keyframes float{
-    0%,100%{
-        transform:translateY(0);
-    }
-    50%{
-        transform:translateY(-12px);
-    }
-}
 
-/* MOBILE */
+/* =====================================================
+   MOBILE
+===================================================== */
 
-@media(max-width:850px){
+@media(max-width:900px){
 
     .nav-links{
         display:none;
     }
 
-    .hero{
-        padding-top:125px;
+    .hero-grid{
+        grid-template-columns:1fr;
+
+        gap:50px;
     }
 
-    .hero-grid,
+    .hero{
+        padding-top:120px;
+    }
+
     .about-grid,
     .skills-grid{
         grid-template-columns:1fr;
-    }
-
-    .hero-grid{
-        gap:45px;
-    }
-
-    .hero h1{
-        letter-spacing:-2px;
     }
 
     .services-grid,
@@ -624,7 +1185,8 @@ footer{
 
 }
 
-@media(max-width:560px){
+
+@media(max-width:600px){
 
     section{
         padding:75px 0;
@@ -635,7 +1197,9 @@ footer{
     }
 
     .hero h1{
-        font-size:43px;
+        font-size:44px;
+
+        letter-spacing:-2px;
     }
 
     .hero p{
@@ -656,17 +1220,41 @@ footer{
         grid-template-columns:1fr;
     }
 
-    .stats{
-        grid-template-columns:1fr 1fr;
-    }
-
     .profile-card{
         padding:25px 20px;
     }
 
+    .profile-photo{
+        width:160px;
+        height:160px;
+    }
+
     .footer-inner{
         flex-direction:column;
+
         text-align:center;
+    }
+
+}
+
+
+/* =====================================================
+   ACCESSIBILITY
+===================================================== */
+
+@media(prefers-reduced-motion:reduce){
+
+    *,
+    *::before,
+    *::after{
+
+        animation-duration:.01ms !important;
+
+        animation-iteration-count:1 !important;
+
+        scroll-behavior:auto !important;
+
+        transition-duration:.01ms !important;
     }
 
 }
@@ -674,24 +1262,59 @@ footer{
 </style>
 </head>
 
+
 <body>
+
+<!-- ANIMATED BACKGROUND -->
+
+<div class="background">
+
+<div class="blob one"></div>
+
+<div class="blob two"></div>
+
+<div class="blob three"></div>
+
+</div>
+
 
 <!-- NAVIGATION -->
 
 <nav>
+
 <div class="container nav-inner">
 
-<a href="#home" class="logo">Dawit<span>.</span></a>
+<a href="#home" class="logo">
+Dawit<span>.</span>
+</a>
+
+<div class="nav-right">
 
 <div class="nav-links">
+
 <a href="#about">About</a>
+
 <a href="#services">Services</a>
+
 <a href="#work">Portfolio</a>
+
 <a href="#skills">Skills</a>
-<a href="#contact" class="nav-btn">Let's Talk</a>
+
+<a href="#contact">Contact</a>
+
+</div>
+
+<button
+class="theme-toggle"
+id="themeToggle"
+aria-label="Toggle light and dark mode">
+🌙
+</button>
+
 </div>
 
 </div>
+
 </nav>
 
 
@@ -701,40 +1324,63 @@ footer{
 
 <div class="container hero-grid">
 
+
 <div class="reveal">
 
-<div class="badge">● AVAILABLE FOR FREELANCE WORK</div>
+<div class="badge">
+● AVAILABLE FOR FREELANCE WORK
+</div>
+
 
 <h1>
+
 B2B Market Research
+
 <span class="gradient">+</span>
+
 Lead Generation
+
 </h1>
 
+
 <p>
+
 I find the companies, prospects and market intelligence
 your sales team needs to build better opportunities.
+
 </p>
+
 
 <div class="buttons">
 
-<a class="btn btn-primary"
+<a
+class="btn btn-primary"
 href="mailto:dawitfeyisa123@gmail.com">
+
 📧 Email Me
+
 </a>
 
-<a class="btn btn-secondary"
+
+<a
+class="btn btn-secondary"
 href="https://www.linkedin.com/in/dawit-feyisa"
 target="_blank"
 rel="noopener noreferrer">
+
 💼 LinkedIn
+
 </a>
 
-<a class="btn btn-secondary"
+
+<a
+class="btn btn-secondary"
 href="https://wa.me/251912679794"
 target="_blank"
 rel="noopener noreferrer">
+
 💬 WhatsApp
+
 </a>
 
 </div>
@@ -742,43 +1388,69 @@ rel="noopener noreferrer">
 </div>
 
 
+
+<!-- PROFILE -->
+
 <div class="profile-card reveal">
 
-<div class="profile-circle">
-DF
-</div>
+<img
+src="dawit-profile.jpg"
+alt="Dawit Feyisa"
+class="profile-photo"
+loading="eager"
+>
 
-<h3>Dawit Feyisa</h3>
+<h3>
+Dawit Feyisa
+</h3>
 
-<div class="role">
+<div class="profile-role">
 Marketing • Sales • Research
 </div>
 
+
 <div class="mini-stat">
+
 <span>Based in</span>
-<strong>Addis Ababa, Ethiopia</strong>
+
+<strong>Addis Ababa</strong>
+
 </div>
 
-<div class="mini-stat">
-<span>Experience</span>
-<strong>Marketing & Sales</strong>
-</div>
 
 <div class="mini-stat">
-<span>Focus</span>
+
+<span>Specialization</span>
+
 <strong>B2B Growth</strong>
+
 </div>
+
 
 <div class="mini-stat">
+
+<span>Experience</span>
+
+<strong>Marketing & Sales</strong>
+
+</div>
+
+
+<div class="mini-stat">
+
 <span>Education</span>
+
 <strong>BA Marketing Management</strong>
+
 </div>
 
 </div>
+
 
 </div>
 
 </section>
+
 
 
 <!-- ABOUT -->
@@ -787,78 +1459,131 @@ Marketing • Sales • Research
 
 <div class="container">
 
-<div class="section-label reveal">About Me</div>
+<div class="section-label reveal">
+About Me
+</div>
+
 
 <h2 class="section-title reveal">
-Marketing knowledge backed by real field experience.
+
+Marketing knowledge backed by
+real-world experience.
+
 </h2>
 
+
 <div class="about-grid">
+
 
 <div class="about-text reveal">
 
 <p>
-I'm Dawit Feyisa, a Marketing Management graduate and
-B2B market research and lead generation specialist based
-in Addis Ababa, Ethiopia.
+
+I'm <strong>Dawit Feyisa</strong>, a Marketing Management
+graduate and B2B market research and lead generation
+specialist based in Addis Ababa, Ethiopia.
+
 </p>
 
+
 <p>
+
 My professional experience combines marketing research,
-sales, customer engagement, business research, lead
-generation, CRM, Excel and data analysis.
+sales, customer engagement, business research,
+lead generation, CRM, Excel and data analysis.
+
 </p>
 
+
 <p>
+
 In my current Marketing and Sales role, I work with
 business customers, research markets and dealers,
 identify prospects, support sales activities and turn
 field information into useful business insights.
+
 </p>
 
+
 <p>
-I bring a practical approach to freelance projects:
-understand the target market, research the right prospects,
-organize reliable information and deliver clear,
-actionable results.
+
+My approach is practical and business-focused:
+understand the target market, research the right
+prospects, organize reliable information and deliver
+clear results.
+
 </p>
 
 </div>
+
 
 
 <div class="about-highlights reveal">
 
+
 <div class="highlight">
-<h4>🎓 Marketing Management</h4>
+
+<h4>
+🎓 Marketing Management
+</h4>
+
 <p>
+
 BA in Marketing Management from St. Mary's University.
 Major GPA 3.7/4.0 and CGPA 3.56/4.0.
+
 </p>
+
 </div>
 
+
 <div class="highlight">
-<h4>🔎 Real Market Research</h4>
+
+<h4>
+🔎 Market Research
+</h4>
+
 <p>
+
 Hands-on experience conducting B2B field research,
 customer research and dealer research.
+
 </p>
+
 </div>
 
-<div class="highlight">
-<h4>🤝 Sales & Lead Generation</h4>
-<p>
-Experience with prospect identification, customer
-engagement, follow-up and sales support.
-</p>
-</div>
 
 <div class="highlight">
-<h4>📊 Data & Reporting</h4>
+
+<h4>
+🎯 Lead Generation
+</h4>
+
 <p>
-Excel, Google Sheets, data organization, analysis,
-reporting and business research.
+
+Experience identifying prospects, engaging customers,
+supporting sales and managing follow-up.
+
 </p>
+
 </div>
+
+
+<div class="highlight">
+
+<h4>
+📊 Data & Reporting
+</h4>
+
+<p>
+
+Experience with Excel, Google Sheets, data organization,
+analysis and business reporting.
+
+</p>
+
+</div>
+
 
 </div>
 
@@ -867,6 +1592,7 @@ reporting and business research.
 </div>
 
 </section>
+
 
 
 <!-- SERVICES -->
@@ -875,74 +1601,123 @@ reporting and business research.
 
 <div class="container">
 
-<div class="section-label reveal">What I Do</div>
+<div class="section-label reveal">
+What I Do
+</div>
+
 
 <h2 class="section-title reveal">
 Services for growing businesses.
 </h2>
 
+
 <p class="section-intro reveal">
+
 I help sales and marketing teams identify opportunities,
-understand markets and organize the information they need
-to make better business decisions.
+understand markets and organize the information they
+need to make better business decisions.
+
 </p>
 
 
 <div class="services-grid">
 
+
 <div class="service reveal">
+
 <div class="icon">🎯</div>
+
 <h3>B2B Lead Generation</h3>
+
 <p>
-Find and organize relevant companies, prospects,
-buyers, dealers and decision-makers.
+
+Find and organize relevant companies,
+prospects, buyers, dealers and decision-makers.
+
 </p>
+
 </div>
 
+
 <div class="service reveal">
+
 <div class="icon">🔎</div>
+
 <h3>Market Research</h3>
+
 <p>
-Research competitors, markets, products, industries
-and customer needs.
+
+Research competitors, markets, products,
+industries and customer needs.
+
 </p>
+
 </div>
 
+
 <div class="service reveal">
+
 <div class="icon">🌐</div>
+
 <h3>Web Research</h3>
+
 <p>
-Collect, verify and organize business information
-from online sources.
+
+Collect, verify and organize useful business
+information from online sources.
+
 </p>
+
 </div>
 
+
 <div class="service reveal">
+
 <div class="icon">📈</div>
+
 <h3>Sales Research</h3>
+
 <p>
+
 Support sales teams with prospect research,
 business profiles and opportunity identification.
+
 </p>
+
 </div>
 
+
 <div class="service reveal">
+
 <div class="icon">📊</div>
+
 <h3>Excel & Data</h3>
+
 <p>
+
 Clean, organize, analyze and present business
 data using Excel and Google Sheets.
+
 </p>
+
 </div>
 
+
 <div class="service reveal">
+
 <div class="icon">🤝</div>
+
 <h3>CRM & Follow-up</h3>
+
 <p>
-Organize prospect information and support structured
-customer follow-up processes.
+
+Organize prospect information and support
+structured customer follow-up processes.
+
 </p>
+
 </div>
+
 
 </div>
 
@@ -951,45 +1726,79 @@ customer follow-up processes.
 </section>
 
 
-<!-- STATS -->
+
+<!-- EXPERIENCE -->
 
 <section>
 
 <div class="container">
 
-<div class="section-label reveal">Experience Snapshot</div>
+<div class="section-label reveal">
+Experience Snapshot
+</div>
+
 
 <h2 class="section-title reveal">
-Practical experience. Real business environments.
+
+Practical experience in marketing,
+sales and research.
+
 </h2>
+
 
 <div class="stats">
 
+
 <div class="stat reveal">
+
 <strong>2+</strong>
-<span>Years in Marketing & Sales</span>
+
+<span>
+Years in Marketing & Sales
+</span>
+
 </div>
 
+
 <div class="stat reveal">
+
 <strong>10+</strong>
-<span>Field Research Campaigns</span>
+
+<span>
+Field Research Campaigns
+</span>
+
 </div>
 
+
 <div class="stat reveal">
+
 <strong>B2B</strong>
-<span>Sales & Market Focus</span>
+
+<span>
+Sales & Market Focus
+</span>
+
 </div>
 
+
 <div class="stat reveal">
+
 <strong>3.7</strong>
-<span>Major GPA / 4.0</span>
+
+<span>
+Major GPA / 4.0
+</span>
+
 </div>
+
 
 </div>
 
 </div>
 
 </section>
+
 
 
 <!-- PORTFOLIO -->
@@ -998,49 +1807,74 @@ Practical experience. Real business environments.
 
 <div class="container">
 
-<div class="section-label reveal">Selected Work</div>
+<div class="section-label reveal">
+Selected Work
+</div>
+
 
 <h2 class="section-title reveal">
-Real-world market research & sales experience.
+
+Real-world market research
+and sales experience.
+
 </h2>
 
+
 <p class="section-intro reveal">
+
 Selected examples from my professional experience.
-Customer names and private contact information are
-not displayed.
+Customer names and private contact information
+are not displayed.
+
 </p>
 
 
 <div class="case-grid">
 
 
+<!-- CASE 1 -->
+
 <div class="case reveal">
 
 <div class="case-top"></div>
 
 <div class="case-content">
 
-<div class="case-number">CASE STUDY 01</div>
+<div class="case-number">
+CASE STUDY 01
+</div>
 
-<h3>B2B Field Research & Lead Generation</h3>
+<h3>
+B2B Field Research & Lead Generation
+</h3>
 
 <p>
-Conducted field promotion and market research in
-Koye Feche, engaging businesses and identifying
+
+Conducted field promotion and market research
+in Koye Feche, engaging businesses and identifying
 potential customers interested in machinery,
 semi-finished products and furniture-related products.
+
 </p>
 
 <div class="case-result">
-<strong>Documented activity:</strong><br>
-14 businesses contacted and 4 identified as interested
-prospects during the reported campaign day.
-</div>
+
+<strong>Documented activity:</strong>
+
+<br>
+
+14 businesses contacted and 4 identified as
+interested prospects during the reported campaign day.
 
 </div>
 
 </div>
 
+</div>
+
+
+
+<!-- CASE 2 -->
 
 <div class="case reveal">
 
@@ -1048,26 +1882,41 @@ prospects during the reported campaign day.
 
 <div class="case-content">
 
-<div class="case-number">CASE STUDY 02</div>
+<div class="case-number">
+CASE STUDY 02
+</div>
 
-<h3>Customer & Market Intelligence</h3>
+<h3>
+Customer & Market Intelligence
+</h3>
 
 <p>
+
 Gathered customer feedback through direct field
-engagement, including product preferences, purchasing
-needs, pricing feedback and market observations.
+engagement, including product preferences,
+purchasing needs, pricing feedback and market
+observations.
+
 </p>
 
 <div class="case-result">
-<strong>Contribution:</strong><br>
+
+<strong>Contribution:</strong>
+
+<br>
+
 Organized field observations and customer feedback
 to support sales and marketing follow-up.
-</div>
 
 </div>
 
 </div>
 
+</div>
+
+
+
+<!-- CASE 3 -->
 
 <div class="case reveal">
 
@@ -1075,20 +1924,31 @@ to support sales and marketing follow-up.
 
 <div class="case-content">
 
-<div class="case-number">CASE STUDY 03</div>
+<div class="case-number">
+CASE STUDY 03
+</div>
 
-<h3>From Prospect to Sales Opportunity</h3>
+<h3>
+From Prospect to Sales Opportunity
+</h3>
 
 <p>
+
 Supported customer follow-up and coordination around
 a potential large dining-chair requirement, connecting
-the customer needs with the production team.
+customer needs with the production team.
+
 </p>
 
 <div class="case-result">
-<strong>Documented opportunity:</strong><br>
+
+<strong>Documented opportunity:</strong>
+
+<br>
+
 A potential order involving approximately 300 dining
 chairs was identified and coordinated for follow-up.
+
 </div>
 
 </div>
@@ -1101,6 +1961,7 @@ chairs was identified and coordinated for follow-up.
 </div>
 
 </section>
+
 
 
 <!-- PROCESS -->
@@ -1109,49 +1970,100 @@ chairs was identified and coordinated for follow-up.
 
 <div class="container">
 
-<div class="section-label reveal">My Process</div>
+<div class="section-label reveal">
+My Process
+</div>
+
 
 <h2 class="section-title reveal">
+
 Simple, organized and business-focused.
+
 </h2>
+
 
 <div class="process">
 
-<div class="step reveal">
-<div class="step-number">01</div>
-<h3>Understand</h3>
-<p>
-Understand your target market, ideal customer
-and project requirements.
-</p>
-</div>
 
 <div class="step reveal">
-<div class="step-number">02</div>
-<h3>Research</h3>
-<p>
-Find relevant companies, prospects, products,
-competitors and market information.
-</p>
+
+<div class="step-number">
+01
 </div>
 
-<div class="step reveal">
-<div class="step-number">03</div>
-<h3>Organize</h3>
+<h3>
+Understand
+</h3>
+
 <p>
-Clean and structure information using spreadsheets,
-research frameworks and clear categories.
+
+Understand your target market,
+ideal customer and project requirements.
+
 </p>
+
 </div>
 
+
 <div class="step reveal">
-<div class="step-number">04</div>
-<h3>Deliver</h3>
-<p>
-Provide a clear, organized deliverable that your
-sales or marketing team can actually use.
-</p>
+
+<div class="step-number">
+02
 </div>
+
+<h3>
+Research
+</h3>
+
+<p>
+
+Find relevant companies, prospects,
+products, competitors and market information.
+
+</p>
+
+</div>
+
+
+<div class="step reveal">
+
+<div class="step-number">
+03
+</div>
+
+<h3>
+Organize
+</h3>
+
+<p>
+
+Clean and structure information using
+spreadsheets and research frameworks.
+
+</p>
+
+</div>
+
+
+<div class="step reveal">
+
+<div class="step-number">
+04
+</div>
+
+<h3>
+Deliver
+</h3>
+
+<p>
+
+Provide clear, organized deliverables
+that your team can actually use.
+
+</p>
+
+</div>
+
 
 </div>
 
@@ -1160,37 +2072,59 @@ sales or marketing team can actually use.
 </section>
 
 
+
 <!-- SKILLS -->
 
 <section id="skills">
 
 <div class="container">
 
-<div class="section-label reveal">Skills</div>
+<div class="section-label reveal">
+Skills & Tools
+</div>
+
 
 <h2 class="section-title reveal">
-Tools, knowledge and capabilities.
+
+What I bring to a project.
+
 </h2>
+
 
 <div class="skills-grid">
 
+
 <div class="reveal">
 
-<h3 style="margin-bottom:20px;">Professional Skills</h3>
+<h3 style="margin-bottom:20px;">
+Professional Skills
+</h3>
+
 
 <div class="skills">
 
 <span class="skill">B2B Lead Generation</span>
+
 <span class="skill">Market Research</span>
+
 <span class="skill">Web Research</span>
+
 <span class="skill">Sales Research</span>
+
 <span class="skill">Customer Research</span>
+
 <span class="skill">Dealer Research</span>
+
 <span class="skill">Business Development</span>
+
 <span class="skill">CRM</span>
+
 <span class="skill">Customer Engagement</span>
+
 <span class="skill">Digital Marketing</span>
+
 <span class="skill">Data Analysis</span>
+
 <span class="skill">Reporting</span>
 
 </div>
@@ -1198,21 +2132,34 @@ Tools, knowledge and capabilities.
 </div>
 
 
+
 <div class="reveal">
 
-<h3 style="margin-bottom:20px;">Tools & Education</h3>
+<h3 style="margin-bottom:20px;">
+Tools & Education
+</h3>
+
 
 <div class="skills">
 
 <span class="skill">Microsoft Excel</span>
+
 <span class="skill">Google Sheets</span>
+
 <span class="skill">Microsoft Word</span>
+
 <span class="skill">PowerPoint</span>
+
 <span class="skill">Canva</span>
+
 <span class="skill">SQL</span>
+
 <span class="skill">HTML</span>
+
 <span class="skill">AI Tools</span>
+
 <span class="skill">BA Marketing Management</span>
+
 <span class="skill">Data Analysis Nano Degree</span>
 
 </div>
@@ -1226,6 +2173,7 @@ Tools, knowledge and capabilities.
 </section>
 
 
+
 <!-- CONTACT -->
 
 <section id="contact">
@@ -1234,42 +2182,69 @@ Tools, knowledge and capabilities.
 
 <div class="contact-box reveal">
 
-<div class="section-label">Let's Work Together</div>
+<div class="section-label">
+Let's Work Together
+</div>
+
 
 <h2 class="section-title">
+
 Have a research or lead generation project?
+
 </h2>
 
+
 <p>
-If you need help finding B2B prospects, researching a
-market, building a business list or organizing sales
-intelligence, let's talk about your project.
+
+If you need help finding B2B prospects,
+researching a market, building a business list
+or organizing sales intelligence, let's talk
+about your project.
+
 </p>
 
-<div class="buttons" style="justify-content:center;">
 
-<a class="btn btn-primary"
+<div
+class="buttons"
+style="justify-content:center;">
+
+<a
+class="btn btn-primary"
 href="mailto:dawitfeyisa123@gmail.com">
+
 📧 Email Me
+
 </a>
 
-<a class="btn btn-secondary"
+
+<a
+class="btn btn-secondary"
 href="https://www.linkedin.com/in/dawit-feyisa"
 target="_blank"
 rel="noopener noreferrer">
+
 💼 LinkedIn
+
 </a>
 
-<a class="btn btn-secondary"
+
+<a
+class="btn btn-secondary"
 href="tel:+251912679794">
+
 📞 Call Me
+
 </a>
 
-<a class="btn btn-secondary"
+
+<a
+class="btn btn-secondary"
 href="https://wa.me/251912679794"
 target="_blank"
 rel="noopener noreferrer">
+
 💬 WhatsApp
+
 </a>
 
 </div>
@@ -1277,15 +2252,34 @@ rel="noopener noreferrer">
 
 <div class="contact-info">
 
-<a class="contact-item"
+
+<a
+class="contact-item"
 href="mailto:dawitfeyisa123@gmail.com">
-dawitfeyisa123@gmail.com
+
+📧 dawitfeyisa123@gmail.com
+
 </a>
 
-<a class="contact-item"
+
+<a
+class="contact-item"
 href="tel:+251912679794">
-+251 912 679 794
+
+📱 +251 912 679 794
+
 </a>
+
+
+<a
+class="contact-item"
+href="https://www.linkedin.com/in/dawit-feyisa"
+target="_blank">
+
+💼 LinkedIn
+
+</a>
+
 
 </div>
 
@@ -1296,6 +2290,7 @@ href="tel:+251912679794">
 </section>
 
 
+
 <!-- FOOTER -->
 
 <footer>
@@ -1303,11 +2298,17 @@ href="tel:+251912679794">
 <div class="container footer-inner">
 
 <div>
-© 2026 Dawit Feyisa. All rights reserved.
+
+© 2026 Dawit Feyisa.
+All rights reserved.
+
 </div>
 
+
 <div>
+
 B2B Market Research • Lead Generation • Sales Research
+
 </div>
 
 </div>
@@ -1315,56 +2316,134 @@ B2B Market Research • Lead Generation • Sales Research
 </footer>
 
 
+
 <script>
 
-/* SCROLL REVEAL */
+/* =====================================================
+   SCROLL REVEAL
+===================================================== */
 
-const reveals = document.querySelectorAll(".reveal");
+const reveals =
+document.querySelectorAll(".reveal");
 
-const observer = new IntersectionObserver(
+const observer =
+new IntersectionObserver(
 (entries)=>{
-    entries.forEach(entry=>{
-        if(entry.isIntersecting){
-            entry.target.classList.add("show");
-        }
-    });
+
+entries.forEach(entry=>{
+
+if(entry.isIntersecting){
+
+entry.target.classList.add("show");
+
+}
+
+});
+
 },
 {
-    threshold:0.12
+threshold:.12
 }
 );
 
-reveals.forEach(el=>observer.observe(el));
+reveals.forEach(
+el=>observer.observe(el)
+);
 
 
-/* ACTIVE NAVIGATION */
+/* =====================================================
+   DARK / LIGHT MODE
+===================================================== */
 
-const sections = document.querySelectorAll("section[id]");
-const navLinks = document.querySelectorAll(".nav-links a");
+const themeButton =
+document.getElementById("themeToggle");
+
+
+const savedTheme =
+localStorage.getItem("dawit-theme");
+
+
+if(savedTheme === "light"){
+
+document.body.classList.add("light");
+
+themeButton.textContent="☀️";
+
+}
+
+
+themeButton.addEventListener("click",()=>{
+
+document.body.classList.toggle("light");
+
+
+if(document.body.classList.contains("light")){
+
+localStorage.setItem("dawit-theme","light");
+
+themeButton.textContent="☀️";
+
+}else{
+
+localStorage.setItem("dawit-theme","dark");
+
+themeButton.textContent="🌙";
+
+}
+
+});
+
+
+/* =====================================================
+   ACTIVE NAVIGATION
+===================================================== */
+
+const sections =
+document.querySelectorAll("section[id]");
+
+const navLinks =
+document.querySelectorAll(".nav-links a");
+
 
 window.addEventListener("scroll",()=>{
 
-    let current="";
+let current="";
 
-    sections.forEach(section=>{
-        const sectionTop=section.offsetTop-150;
+sections.forEach(section=>{
 
-        if(window.scrollY>=sectionTop){
-            current=section.getAttribute("id");
-        }
-    });
+const top =
+section.offsetTop - 180;
 
-    navLinks.forEach(link=>{
-        link.style.color="";
+if(window.scrollY >= top){
 
-        if(link.getAttribute("href")==="#"+current){
-            link.style.color="var(--green)";
-        }
-    });
+current =
+section.getAttribute("id");
+
+}
+
+});
+
+
+navLinks.forEach(link=>{
+
+link.style.color="";
+
+if(
+link.getAttribute("href")
+===
+"#"+current
+){
+
+link.style.color="var(--primary)";
+
+}
+
+});
 
 });
 
 </script>
+
 
 </body>
     </html>
